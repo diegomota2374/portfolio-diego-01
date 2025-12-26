@@ -1,24 +1,19 @@
+/**
+ * Tailwind CSS v4 - Configuração
+ * 
+ * No Tailwind v4, a configuração é feita via CSS usando @theme.
+ * Este arquivo é mantido apenas para compatibilidade ou se você
+ * preferir usar @config no CSS.
+ * 
+ * A configuração principal está em src/index.css usando @theme
+ */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        // Dark mode colors
-        'dark-primary': '#0a0e27', // Almost black dark blue
-        'dark-accent': '#00ff88', // Green
-        'dark-bg': '#0f1419',
-        // Light mode colors
-        'light-primary': '#4a90e2', // Lighter blue
-        'light-accent': '#f5f7fa', // Ice gray/white
-        'light-bg': '#ffffff',
-      },
-    },
-  },
-  plugins: [],
+  // darkMode: 'class' - Configurado via CSS no Tailwind v4
 }
 
