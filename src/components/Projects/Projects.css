@@ -1,192 +1,159 @@
+@import "tailwindcss";
+@reference "../../index.css";
+
 .projects {
-  padding: 6rem 2rem;
-  background-color: #0a0e27;
-  min-height: 100vh;
+  @apply py-24 px-8 min-h-screen;
+  @apply bg-dark-primary;
 }
 
 .light .projects {
-  background-color: #f5f7fa;
+  @apply bg-light-accent;
 }
 
 .projects__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  @apply max-w-container mx-auto w-full;
 }
 
 .projects__title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0 0 3rem 0;
-  text-align: center;
-  background: linear-gradient(135deg, #00ff88, #4a90e2);
+  @apply text-4xl md:text-5xl font-display font-bold mb-12 text-center;
+  background: var(--gradient-text);
+  @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .projects__grid {
-  display: grid;
+  @apply grid gap-8;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
 }
 
 .projects__card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  @apply backdrop-blur-md border border-dark-border rounded-3xl overflow-hidden;
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .light .projects__card {
   background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(0, 0, 0, 0.1);
+  @apply border-light-border;
 }
 
 .projects__card:hover {
-  transform: translateY(-10px);
+  @apply -translate-y-2.5;
   box-shadow: 0 12px 40px rgba(0, 255, 136, 0.2);
-  border-color: #00ff88;
+  @apply border-dark-accent;
 }
 
 .light .projects__card:hover {
   box-shadow: 0 12px 40px rgba(74, 144, 226, 0.2);
-  border-color: #4a90e2;
+  @apply border-light-primary;
 }
 
 .projects__card-image {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-  position: relative;
+  @apply w-full h-[250px] overflow-hidden relative;
 }
 
 .projects__card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  @apply w-full h-full object-cover transition-transform duration-300 ease-in-out;
 }
 
 .projects__card:hover .projects__card-image img {
-  transform: scale(1.1);
+  @apply scale-110;
 }
 
 .projects__card-content {
-  padding: 2rem;
+  @apply p-8;
 }
 
 .projects__card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #ffffff;
+  @apply text-2xl font-semibold mb-4 text-dark-text;
 }
 
 .light .projects__card-title {
-  color: #0a0e27;
+  @apply text-light-text;
 }
 
 .projects__card-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0 1.5rem 0;
+  @apply text-base leading-relaxed mb-6 text-dark-text-muted;
 }
 
 .light .projects__card-description {
-  color: rgba(10, 14, 39, 0.7);
+  @apply text-light-text-muted;
 }
 
 .projects__card-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  @apply flex flex-wrap gap-2 mb-6;
 }
 
 .projects__card-tech-item {
-  padding: 0.5rem 1rem;
+  @apply px-4 py-2 rounded-lg text-sm font-medium;
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  color: #00ff88;
-  font-weight: 500;
+  @apply text-dark-accent;
 }
 
 .light .projects__card-tech-item {
   background: rgba(74, 144, 226, 0.1);
   border-color: rgba(74, 144, 226, 0.3);
-  color: #4a90e2;
+  @apply text-light-primary;
 }
 
 .projects__card-actions {
-  display: flex;
-  gap: 1rem;
+  @apply flex gap-4;
 }
 
 .projects__card-link {
-  flex: 1;
-  padding: 0.75rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-  background: linear-gradient(135deg, #00ff88, #4a90e2);
-  color: #0a0e27;
+  @apply flex-1 px-6 py-3 text-center no-underline font-semibold rounded-lg;
+  @apply transition-all duration-300 ease-in-out;
+  background: var(--gradient-primary);
+  @apply text-dark-primary;
 }
 
 .projects__card-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+  @apply -translate-y-0.5 shadow-glow-green-sm;
 }
 
 .projects__card-link--secondary {
-  background: transparent;
-  border: 2px solid #00ff88;
-  color: #00ff88;
+  @apply bg-transparent border-2;
+  @apply border-dark-accent;
+  @apply text-dark-accent;
 }
 
 .light .projects__card-link--secondary {
-  border-color: #4a90e2;
-  color: #4a90e2;
+  @apply border-light-primary;
+  @apply text-light-primary;
 }
 
 .projects__card-link--secondary:hover {
   background: rgba(0, 255, 136, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+  @apply shadow-glow-green-sm;
 }
 
 .light .projects__card-link--secondary:hover {
   background: rgba(74, 144, 226, 0.1);
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+  @apply shadow-glow-blue-sm;
 }
 
 .projects__card-link:focus {
-  outline: 2px solid #00ff88;
-  outline-offset: 2px;
+  @apply outline-2 outline-offset-2;
+  outline-color: var(--color-dark-accent);
 }
 
 .light .projects__card-link:focus {
-  outline-color: #4a90e2;
+  outline-color: var(--color-light-primary);
 }
 
 @media (max-width: 768px) {
   .projects {
-    padding: 4rem 1rem;
+    @apply py-16 px-4;
   }
 
   .projects__title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    @apply text-3xl mb-8;
   }
 
   .projects__grid {
-    grid-template-columns: 1fr;
+    @apply grid-cols-1;
   }
 }
 

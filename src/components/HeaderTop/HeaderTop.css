@@ -1,52 +1,39 @@
+@import "tailwindcss";
+@reference "../../index.css";
+
 .header-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 0.75rem 0;
+  @apply fixed top-0 left-0 right-0 z-[1000] py-3;
   background-color: rgba(10, 14, 39, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  @apply backdrop-blur-md border-b border-dark-border;
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .light .header-top {
   background-color: rgba(245, 247, 250, 0.8);
-  border-bottom-color: rgba(0, 0, 0, 0.1);
+  @apply border-light-border;
 }
 
 .header-top__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  @apply max-w-container mx-auto px-8 flex justify-end gap-4;
 }
 
 .header-top__toggle {
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
+  @apply px-4 py-2 rounded-lg text-sm font-semibold cursor-pointer;
+  @apply transition-all duration-300 ease-in-out backdrop-blur-sm;
+  border: 1px solid var(--color-dark-border-strong);
   background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  @apply text-dark-text;
 }
 
 .light .header-top__toggle {
-  border-color: rgba(0, 0, 0, 0.1);
+  @apply border-light-border-strong;
   background-color: rgba(255, 255, 255, 0.5);
-  color: #0a0e27;
+  @apply text-light-text;
 }
 
 .header-top__toggle:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  @apply -translate-y-0.5;
 }
 
 .light .header-top__toggle:hover {
@@ -54,15 +41,15 @@
 }
 
 .header-top__toggle:active {
-  transform: translateY(0);
+  @apply translate-y-0;
 }
 
 .header-top__toggle:focus {
-  outline: 2px solid #00ff88;
-  outline-offset: 2px;
+  @apply outline-2 outline-offset-2;
+  outline-color: var(--color-dark-accent);
 }
 
 .light .header-top__toggle:focus {
-  outline-color: #4a90e2;
+  outline-color: var(--color-light-primary);
 }
 

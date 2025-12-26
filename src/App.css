@@ -1,9 +1,10 @@
+@import "tailwindcss";
+
 .app {
-  min-height: 100vh;
-  position: relative;
+  @apply min-h-screen relative;
 }
 
 .main {
-  width: 100%;
+  @apply w-full;
 }
 

@@ -1,129 +1,101 @@
+@import "tailwindcss";
+@reference "../../index.css";
+
 .header-nav {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  padding: 1rem 0;
+  @apply fixed top-[60px] left-0 right-0 z-[999] py-4;
   background-color: rgba(10, 14, 39, 0.6);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  @apply backdrop-blur-[10px] border-b border-white/5;
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .light .header-nav {
   background-color: rgba(245, 247, 250, 0.6);
-  border-bottom-color: rgba(0, 0, 0, 0.05);
+  @apply border-black/5;
 }
 
 .header-nav--sticky {
-  top: 0;
+  @apply top-0;
   background-color: rgba(10, 14, 39, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  @apply shadow-[0_4px_20px_rgba(0,0,0,0.3)];
 }
 
 .light .header-nav--sticky {
   background-color: rgba(245, 247, 250, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  @apply shadow-[0_4px_20px_rgba(0,0,0,0.1)];
 }
 
 .header-nav__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @apply max-w-container mx-auto px-8 flex justify-between items-center;
 }
 
 .header-nav__logo {
-  display: flex;
-  align-items: center;
+  @apply flex items-center;
 }
 
 .header-nav__logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #00ff88, #4a90e2);
+  @apply text-2xl font-display font-bold tracking-wider;
+  background: var(--gradient-text);
+  @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 2px;
 }
 
 .header-nav__list {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  @apply flex gap-8 list-none m-0 p-0;
 }
 
 .header-nav__item {
-  margin: 0;
+  @apply m-0;
 }
 
 .header-nav__link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0;
+  @apply no-underline font-medium text-base relative text-dark-text;
+  @apply transition-colors duration-300 ease-in-out py-2;
 }
 
 .light .header-nav__link {
-  color: #0a0e27;
+  @apply text-light-text;
 }
 
 .header-nav__link::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #00ff88, #4a90e2);
-  transition: width 0.3s ease;
+  @apply absolute bottom-0 left-0 w-0 h-0.5;
+  background: var(--gradient-primary);
+  @apply transition-all duration-300 ease-in-out;
 }
 
 .header-nav__link:hover {
-  color: #00ff88;
+  @apply text-dark-accent;
 }
 
 .light .header-nav__link:hover {
-  color: #4a90e2;
+  @apply text-light-primary;
 }
 
 .header-nav__link:hover::after {
-  width: 100%;
+  @apply w-full;
 }
 
 .header-nav__link:focus {
-  outline: 2px solid #00ff88;
-  outline-offset: 4px;
-  border-radius: 4px;
+  @apply outline-2 outline-offset-1 rounded;
+  outline-color: var(--color-dark-accent);
 }
 
 .light .header-nav__link:focus {
-  outline-color: #4a90e2;
+  outline-color: var(--color-light-primary);
 }
 
 @media (max-width: 768px) {
   .header-nav__container {
-    flex-direction: column;
-    gap: 1rem;
+    @apply flex-col gap-4;
   }
 
   .header-nav__list {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    @apply gap-4 flex-wrap justify-center;
   }
 
   .header-nav__link {
-    font-size: 0.875rem;
+    @apply text-sm;
   }
 }
 

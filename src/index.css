@@ -1,12 +1,252 @@
 @import "tailwindcss";
+@import './styles/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Tailwind v4 - Configuração via @theme */
+/* 
+ * No Tailwind v4, use @theme para definir variáveis que se tornam utilitários.
+ * Sintaxe: --{category}-{name}: value
+ * Exemplo: --color-primary → bg-primary, text-primary, etc.
+ */
+@theme {
+  /* Fontes - use font-{name} */
+  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-family-mono: 'Fira Code', Consolas, Monaco, monospace;
+  
+  /* Cores - No Tailwind v4, cores com hífen podem não gerar classes automaticamente */
+  /* Vamos definir sem o prefixo --color- para que funcione */
+  --color-dark-primary: #0a0e27;
+  --color-dark-accent: #00ff88;
+  --color-dark-bg: #0f1419;
+  --color-dark-secondary: #1a1f3a;
+  --color-dark-text: #ffffff;
+  --color-dark-text-muted: rgba(255, 255, 255, 0.7);
+  --color-dark-border: rgba(255, 255, 255, 0.1);
+  
+  --color-light-primary: #4a90e2;
+  --color-light-accent: #f5f7fa;
+  --color-light-bg: #ffffff;
+  --color-light-secondary: #e8ecf1;
+  --color-light-text: #0a0e27;
+  --color-light-text-muted: rgba(10, 14, 39, 0.7);
+  --color-light-border: rgba(0, 0, 0, 0.1);
+  
+  --color-gradient-start: #00ff88;
+  --color-gradient-end: #4a90e2;
+  
+  /* Espaçamentos - use p-{name}, m-{name}, gap-{name} */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+  
+  /* Border radius - use rounded-{name} */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  
+  /* Box shadows - use shadow-{name} */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glass-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-glow-green: 0 8px 25px rgba(0, 255, 136, 0.4);
+  --shadow-glow-blue: 0 8px 25px rgba(74, 144, 226, 0.4);
+  --shadow-glow-green-sm: 0 4px 15px rgba(0, 255, 136, 0.3);
+  --shadow-glow-blue-sm: 0 4px 15px rgba(74, 144, 226, 0.3);
+  
+  /* Backdrop blur - use backdrop-blur-{name} */
+  --blur-xs: 2px;
+  
+  /* Duração de transição - use duration-{name} */
+  --duration-400: 400ms;
+  --duration-600: 600ms;
+  
+  /* Max width - use max-w-{name} */
+  --max-w-container: 1440px;
+  --max-w-container-sm: 640px;
+  --max-w-container-md: 768px;
+  --max-w-container-lg: 1024px;
+  --max-w-container-xl: 1280px;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   body {
-    @apply antialiased;
+    @apply antialiased text-base bg-dark-bg text-dark-text;
+    transition: background-color var(--transition-base), color var(--transition-base);
+  }
+  
+  .light body {
+    @apply bg-light-bg text-light-text;
+  }
+  
+  /* Tipografia base */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h3 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h4 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h5 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  h6 {
+    @apply text-lg md:text-xl;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Links */
+  a {
+    @apply transition-colors duration-300;
+  }
+  
+  /* Botões base */
+  button {
+    @apply transition-all duration-300 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  /* Inputs base */
+  input, textarea {
+    @apply transition-all duration-300 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 }
+
+/* Font utilities */
+@utility font-display {
+  font-family: var(--font-family-display);
+}
+
+/* Max width utilities */
+@utility max-w-container {
+  max-width: var(--max-w-container);
+}
+
+@utility max-w-container-sm {
+  max-width: var(--max-w-container-sm);
+}
+
+@utility max-w-container-md {
+  max-width: var(--max-w-container-md);
+}
+
+@utility max-w-container-lg {
+  max-width: var(--max-w-container-lg);
+}
+
+@utility max-w-container-xl {
+  max-width: var(--max-w-container-xl);
+}
+
+/* Container padrão do projeto */
+@utility default-container {
+  @apply px-24 sm:px-32 md:px-48 xl:px-80 mx-auto;
+  max-width: var(--max-w-container);
+}
+
+/* Cores customizadas - Dark Mode */
+@utility bg-dark-primary {
+  background-color: var(--color-dark-primary);
+}
+
+@utility bg-dark-accent {
+  background-color: var(--color-dark-accent);
+}
+
+@utility bg-dark-bg {
+  background-color: var(--color-dark-bg);
+}
+
+@utility bg-dark-secondary {
+  background-color: var(--color-dark-secondary);
+}
+
+@utility text-dark-text {
+  color: var(--color-dark-text);
+}
+
+@utility text-dark-text-muted {
+  color: var(--color-dark-text-muted);
+}
+
+@utility text-dark-accent {
+  color: var(--color-dark-accent);
+}
+
+@utility text-dark-primary {
+  color: var(--color-dark-primary);
+}
+
+@utility border-dark-border {
+  border-color: var(--color-dark-border);
+}
+
+@utility border-dark-accent {
+  border-color: var(--color-dark-accent);
+}
+
+/* Cores customizadas - Light Mode */
+@utility bg-light-primary {
+  background-color: var(--color-light-primary);
+}
+
+@utility bg-light-accent {
+  background-color: var(--color-light-accent);
+}
+
+@utility bg-light-bg {
+  background-color: var(--color-light-bg);
+}
+
+@utility bg-light-secondary {
+  background-color: var(--color-light-secondary);
+}
+
+@utility text-light-text {
+  color: var(--color-light-text);
+}
+
+@utility text-light-text-muted {
+  color: var(--color-light-text-muted);
+}
+
+@utility text-light-primary {
+  color: var(--color-light-primary);
+}
+
+@utility border-light-border {
+  border-color: var(--color-light-border);
+}
+
+@utility border-light-primary {
+  border-color: var(--color-light-primary);
+}
+
+@utility border-light-border-strong {
+  border-color: var(--color-light-border-strong);
+}
+
 
