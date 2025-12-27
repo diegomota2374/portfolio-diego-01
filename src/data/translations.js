@@ -23,7 +23,21 @@ export const translations = {
     projects: {
       title: 'Projetos',
       viewProject: 'Ver Projeto',
-      viewCode: 'Ver Código'
+      viewCode: 'Ver Código',
+      items: [
+        {
+          title: 'Projeto 1',
+          description: 'Descrição do projeto desenvolvido com React e Next.js'
+        },
+        {
+          title: 'Projeto 2',
+          description: 'Descrição do projeto desenvolvido com WordPress e HubSpot'
+        },
+        {
+          title: 'Projeto 3',
+          description: 'Descrição do projeto desenvolvido com React Native'
+        }
+      ]
     },
     skills: {
       title: 'Habilidades',
@@ -40,7 +54,10 @@ export const translations = {
       send: 'Enviar',
       sending: 'Enviando...',
       success: 'Mensagem enviada com sucesso!',
-      error: 'Erro ao enviar mensagem. Tente novamente.'
+      error: 'Erro ao enviar mensagem. Tente novamente.',
+      locationLabel: 'Localização',
+      phoneLabel: 'Telefone',
+      emailLabel: 'E-mail'
     }
   },
   en: {
@@ -67,7 +84,21 @@ export const translations = {
     projects: {
       title: 'Projects',
       viewProject: 'View Project',
-      viewCode: 'View Code'
+      viewCode: 'View Code',
+      items: [
+        {
+          title: 'Project 1',
+          description: 'Project description developed with React and Next.js'
+        },
+        {
+          title: 'Project 2',
+          description: 'Project description developed with WordPress and HubSpot'
+        },
+        {
+          title: 'Project 3',
+          description: 'Project description developed with React Native'
+        }
+      ]
     },
     skills: {
       title: 'Skills',
@@ -84,7 +115,10 @@ export const translations = {
       send: 'Send',
       sending: 'Sending...',
       success: 'Message sent successfully!',
-      error: 'Error sending message. Please try again.'
+      error: 'Error sending message. Please try again.',
+      locationLabel: 'Location',
+      phoneLabel: 'Phone',
+      emailLabel: 'Email'
     }
   }
 }

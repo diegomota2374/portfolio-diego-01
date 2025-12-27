@@ -27,7 +27,25 @@ export const LanguageProvider = ({ children }) => {
   }
 
   const t = (key) => {
-    return translations[language][key] || key
+    const keys = key.split('.')
+    let value = translations[language]
+    
+    for (const k of keys) {
+      if (value && typeof value === 'object') {
+        // Check if it's an array index
+        if (Array.isArray(value) && /^\d+$/.test(k)) {
+          value = value[parseInt(k)]
+        } else if (k in value) {
+          value = value[k]
+        } else {
+          return key
+        }
+      } else {
+        return key
+      }
+    }
+    
+    return value || key
   }
 
   return (

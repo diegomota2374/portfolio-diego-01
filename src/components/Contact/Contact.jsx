@@ -63,25 +63,25 @@ const Contact = () => {
             <div className="contact__info-item">
               <span className="contact__info-icon">📍</span>
               <div className="contact__info-text">
-                <h3 className="contact__info-label">Localização</h3>
-                <p className="contact__info-value">Fortaleza – CE, Brasil</p>
+                <h3 className="contact__info-label">{t('contact.locationLabel')}</h3>
+                <p className="contact__info-value">{t('about.location')}</p>
               </div>
             </div>
             <div className="contact__info-item">
               <span className="contact__info-icon">📞</span>
               <div className="contact__info-text">
-                <h3 className="contact__info-label">Telefone</h3>
-                <a href="tel:+5585996370976" className="contact__info-value contact__info-value--link">
-                  +55 (85) 99637-0976
+                <h3 className="contact__info-label">{t('contact.phoneLabel')}</h3>
+                <a href={`tel:${t('about.phone').replace(/\s/g, '')}`} className="contact__info-value contact__info-value--link">
+                  {t('about.phone')}
                 </a>
               </div>
             </div>
             <div className="contact__info-item">
               <span className="contact__info-icon">✉️</span>
               <div className="contact__info-text">
-                <h3 className="contact__info-label">E-mail</h3>
-                <a href="mailto:diegomota2374@gmail.com" className="contact__info-value contact__info-value--link">
-                  diegomota2374@gmail.com
+                <h3 className="contact__info-label">{t('contact.emailLabel')}</h3>
+                <a href={`mailto:${t('about.email')}`} className="contact__info-value contact__info-value--link">
+                  {t('about.email')}
                 </a>
               </div>
             </div>
