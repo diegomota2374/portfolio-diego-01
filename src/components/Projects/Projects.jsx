@@ -30,14 +30,16 @@ const Projects = () => {
       <div className="projects__container">
         <h2 className="projects__title">{t('projects.title')}</h2>
         <div className="projects__grid" ref={projectsRef} role="list">
-          {projects.map((project) => (
+          {projects.map((project) => {
+            const projectData = t(project.translationKey)
+            return (
             <article key={project.id} className="projects__card" role="listitem">
               <div className="projects__card-image">
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={projectData.title} />
               </div>
               <div className="projects__card-content">
-                <h3 className="projects__card-title">{project.title}</h3>
-                <p className="projects__card-description">{project.description}</p>
+                <h3 className="projects__card-title">{projectData.title}</h3>
+                <p className="projects__card-description">{projectData.description}</p>
                 <div className="projects__card-tech">
                   {project.technologies.map((tech, index) => (
                     <span key={index} className="projects__card-tech-item">
@@ -51,7 +53,7 @@ const Projects = () => {
                     className="projects__card-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${t('projects.viewProject')} - ${project.title}`}
+                    aria-label={`${t('projects.viewProject')} - ${projectData.title}`}
                   >
                     {t('projects.viewProject')}
                   </a>
@@ -60,14 +62,15 @@ const Projects = () => {
                     className="projects__card-link projects__card-link--secondary"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${t('projects.viewCode')} - ${project.title}`}
+                    aria-label={`${t('projects.viewCode')} - ${projectData.title}`}
                   >
                     {t('projects.viewCode')}
                   </a>
                 </div>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
