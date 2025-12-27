@@ -2,7 +2,7 @@
 @reference "../../index.css";
 
 .header-top {
-  @apply fixed top-0 left-0 right-0 z-[1000] py-3;
+  @apply fixed top-0 left-0 right-0 z-40 py-3;
   background-color: rgba(10, 14, 39, 0.8);
   @apply backdrop-blur-md border-b border-dark-border;
   @apply transition-all duration-300 ease-in-out;
@@ -14,11 +14,11 @@
 }
 
 .header-top__container {
-  @apply max-w-container mx-auto px-8 flex justify-end gap-4;
+  @apply max-w-container mx-auto px-4 sm:px-6 md:px-8 flex justify-end gap-2 sm:gap-4;
 }
 
 .header-top__toggle {
-  @apply px-4 py-2 rounded-lg text-sm font-semibold cursor-pointer;
+  @apply px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold cursor-pointer;
   @apply transition-all duration-300 ease-in-out backdrop-blur-sm;
   border: 1px solid var(--color-dark-border-strong);
   background-color: rgba(255, 255, 255, 0.1);

@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @reference "../../index.css";
 
+/* Mobile First - Estilos base para mobile */
 .header-nav {
-  @apply fixed top-[60px] left-0 right-0 z-[999] py-4;
+  @apply fixed top-[60px] left-0 right-0 z-50 py-3 md:py-4;
   background-color: rgba(10, 14, 39, 0.6);
   @apply backdrop-blur-[10px] border-b border-white/5;
   @apply transition-all duration-300 ease-in-out;
@@ -24,8 +25,9 @@
   @apply shadow-[0_4px_20px_rgba(0,0,0,0.1)];
 }
 
+/* Mobile First - Estilos base para mobile */
 .header-nav__container {
-  @apply max-w-container mx-auto px-8 flex justify-between items-center;
+  @apply max-w-container mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center;
 }
 
 .header-nav__logo {
@@ -33,7 +35,7 @@
 }
 
 .header-nav__logo-text {
-  @apply text-2xl font-display font-bold tracking-wider;
+  @apply text-xl md:text-2xl font-display font-bold tracking-wider;
   background: var(--gradient-text);
   @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
@@ -41,15 +43,26 @@
 }
 
 .header-nav__list {
-  @apply flex gap-8 list-none m-0 p-0;
+  @apply gap-4 md:gap-6 lg:gap-8 list-none m-0 p-0;
 }
+
+/* Menu mobile visível por padrão */
+.header-nav__mobile {
+  @apply flex lg:hidden;
+}
+
+/* Menu desktop escondido por padrão */
+.header-nav__list--desktop {
+  @apply hidden lg:flex;
+}
+
 
 .header-nav__item {
   @apply m-0;
 }
 
 .header-nav__link {
-  @apply no-underline font-medium text-base relative text-dark-text;
+  @apply no-underline font-medium text-sm md:text-base relative text-dark-text;
   @apply transition-colors duration-300 ease-in-out py-2;
 }
 
@@ -83,19 +96,5 @@
 
 .light .header-nav__link:focus {
   outline-color: var(--color-light-primary);
-}
-
-@media (max-width: 768px) {
-  .header-nav__container {
-    @apply flex-col gap-4;
-  }
-
-  .header-nav__list {
-    @apply gap-4 flex-wrap justify-center;
-  }
-
-  .header-nav__link {
-    @apply text-sm;
-  }
 }
 

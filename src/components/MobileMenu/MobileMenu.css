@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@reference "../../index.css";
+
+.mobile-menu__toggle {
+  @apply relative z-50 w-10 h-10 flex items-center justify-center;
+  @apply bg-transparent border-none cursor-pointer p-0;
+  @apply transition-all duration-300 ease-in-out;
+  @apply focus-visible:outline-1 focus-visible:outline-offset-1 rounded;
+  @apply lg:hidden;
+  outline-color: var(--color-dark-accent);
+}
+
+.light .mobile-menu__toggle {
+  outline-color: var(--color-light-primary);
+}
+
+.mobile-menu__hamburger {
+  @apply relative w-6 h-5 flex flex-col justify-between;
+}
+
+.mobile-menu__line {
+  @apply w-full h-0.5 rounded-full;
+  background-color: var(--color-dark-text);
+  @apply transition-all duration-300 ease-in-out;
+  transform-origin: center;
+}
+
+.light .mobile-menu__line {
+  background-color: var(--color-light-text);
+}
+
+/* Animação para transformar em X */
+.mobile-menu__toggle--open .mobile-menu__line--1 {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu__toggle--open .mobile-menu__line--2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu__toggle--open .mobile-menu__line--3 {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Overlay - cobre todo o corpo, não ocupa espaço, z-index baixo */
+.mobile-menu__overlay {
+  @apply fixed inset-0 z-30 bg-black/20;
+  @apply backdrop-blur-sm opacity-0 invisible;
+  @apply transition-all duration-300 ease-in-out;
+  @apply lg:hidden;
+  pointer-events: none;
+}
+
+.mobile-menu__overlay--open {
+  @apply opacity-100 visible;
+  pointer-events: auto;
+}
+
+/* Menu - z-index maior que overlay para ficar por cima, sempre colado no topo */
+.mobile-menu {
+  @apply fixed top-0 right-0 h-full w-80 md:w-96 max-w-[85vw];
+  background-color: var(--color-dark-primary);
+  @apply shadow-2xl;
+  @apply transform translate-x-full;
+  @apply transition-transform duration-300 ease-in-out;
+  @apply overflow-y-auto;
+  @apply z-50;
+}
+
+.light .mobile-menu {
+  background-color: var(--color-light-bg);
+}
+
+.mobile-menu--open {
+  @apply translate-x-0;
+}
+
+/* Mobile First - Estilos base */
+.mobile-menu__list {
+  @apply flex flex-col gap-0 list-none m-0 p-0;
+  @apply px-4 md:px-6 pt-[12rem];
+}
+
+.mobile-menu__item {
+  @apply m-0;
+}
+
+/* Mobile First - Estilos base */
+.mobile-menu__link {
+  @apply block no-underline font-medium text-base md:text-lg;
+  color: var(--color-dark-text);
+  @apply py-3 md:py-4 px-4 relative;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.light .mobile-menu__link {
+  color: var(--color-light-text);
+}
+
+.mobile-menu__link::before {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-1;
+  background: var(--gradient-primary);
+  @apply transform scale-y-0;
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.mobile-menu__link:hover {
+  @apply pl-6;
+  color: var(--color-dark-accent);
+  background-color: rgba(0, 255, 136, 0.05);
+}
+
+.light .mobile-menu__link:hover {
+  color: var(--color-light-primary);
+  background-color: rgba(74, 144, 226, 0.05);
+}
+
+.mobile-menu__link:hover::before {
+  @apply scale-y-100;
+}
+
+/* Animações de entrada dos itens */
+.mobile-menu--open .mobile-menu__item {
+  animation: slideInRight 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.mobile-menu--open .mobile-menu__item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.mobile-menu--open .mobile-menu__item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.mobile-menu--open .mobile-menu__item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.mobile-menu--open .mobile-menu__item:nth-child(4) {
+  animation-delay: 0.25s;
+}
+
+.mobile-menu--open .mobile-menu__item:nth-child(5) {
+  animation-delay: 0.3s;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

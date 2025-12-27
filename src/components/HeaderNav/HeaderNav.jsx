@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
+import MobileMenu from '../MobileMenu/MobileMenu'
 import './HeaderNav.css'
 
 const HeaderNav = () => {
@@ -35,7 +36,7 @@ const HeaderNav = () => {
         <div className="header-nav__logo">
           <span className="header-nav__logo-text">DMC</span>
         </div>
-        <ul className="header-nav__list">
+        <ul className="header-nav__list header-nav__list--desktop">
           <li className="header-nav__item">
             <a
               href="#hero"
@@ -97,6 +98,9 @@ const HeaderNav = () => {
             </a>
           </li>
         </ul>
+        <div className="header-nav__mobile">
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   )
