@@ -1,8 +1,8 @@
-@import "tailwindcss";
+/* Tailwind já está importado globalmente em index.css */
 @reference "../../index.css";
 
 .skills {
-  @apply py-24 px-8 min-h-screen flex items-center;
+  @apply py-24 min-h-screen flex items-center;
   @apply bg-dark-bg;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .skills__container {
-  @apply max-w-container mx-auto w-full;
+  @apply dmc-container w-full;
 }
 
 .skills__title {

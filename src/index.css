@@ -135,39 +135,13 @@
   }
 }
 
-/* Font utilities */
+/* Classes customizadas usando @utility (Tailwind v4) */
+/* Cada classe deve ser definida individualmente */
+
 @utility font-display {
   font-family: var(--font-family-display);
 }
 
-/* Max width utilities */
-@utility max-w-container {
-  max-width: var(--max-w-container);
-}
-
-@utility max-w-container-sm {
-  max-width: var(--max-w-container-sm);
-}
-
-@utility max-w-container-md {
-  max-width: var(--max-w-container-md);
-}
-
-@utility max-w-container-lg {
-  max-width: var(--max-w-container-lg);
-}
-
-@utility max-w-container-xl {
-  max-width: var(--max-w-container-xl);
-}
-
-/* Container padrão do projeto */
-@utility default-container {
-  @apply px-24 sm:px-32 md:px-48 xl:px-80 mx-auto;
-  max-width: var(--max-w-container);
-}
-
-/* Cores customizadas - Dark Mode */
 @utility bg-dark-primary {
   background-color: var(--color-dark-primary);
 }
@@ -208,7 +182,10 @@
   border-color: var(--color-dark-accent);
 }
 
-/* Cores customizadas - Light Mode */
+@utility border-dark-border-strong {
+  border-color: var(--color-dark-border-strong);
+}
+
 @utility bg-light-primary {
   background-color: var(--color-light-primary);
 }
@@ -248,5 +225,35 @@
 @utility border-light-border-strong {
   border-color: var(--color-light-border-strong);
 }
+
+@utility shadow-glow-green {
+  box-shadow: var(--shadow-glow-green);
+}
+
+@utility shadow-glow-blue {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+@utility shadow-glow-green-sm {
+  box-shadow: var(--shadow-glow-green-sm);
+}
+
+@utility shadow-glow-blue-sm {
+  box-shadow: var(--shadow-glow-blue-sm);
+}
+
+@utility shadow-glass {
+  box-shadow: var(--shadow-glass);
+}
+
+@utility shadow-glass-light {
+  box-shadow: var(--shadow-glass-light);
+}
+
+@utility dmc-container {
+  @apply px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 mx-auto;
+  max-width: var(--max-w-container);
+}
+
 
 

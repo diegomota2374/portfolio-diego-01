@@ -1,8 +1,7 @@
-@import "tailwindcss";
 @reference "../../index.css";
 
 .contact {
-  @apply py-24 px-8 min-h-screen flex items-center;
+  @apply py-24 min-h-screen flex items-center;
   @apply bg-dark-primary;
 }
 
@@ -11,7 +10,7 @@
 }
 
 .contact__container {
-  @apply max-w-container mx-auto w-full;
+  @apply dmc-container w-full;
 }
 
 .contact__title {

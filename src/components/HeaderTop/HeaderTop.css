@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* HeaderTop component styles */
 @reference "../../index.css";
 
 .header-top {
@@ -14,7 +14,7 @@
 }
 
 .header-top__container {
-  @apply max-w-container mx-auto px-4 sm:px-6 md:px-8 flex justify-end gap-2 sm:gap-4;
+  @apply dmc-container flex justify-end gap-2 sm:gap-4;
 }
 
 .header-top__toggle {

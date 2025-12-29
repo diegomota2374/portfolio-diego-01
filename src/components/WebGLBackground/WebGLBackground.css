@@ -1,27 +1,13 @@
-@import "tailwindcss";
+
 @reference "../../index.css";
 
-/* Mobile First - Estilos base para mobile */
 .webgl-background {
   @apply fixed inset-0 w-full h-full;
   @apply pointer-events-none;
-  z-index: -1;
   @apply opacity-20;
 }
 
-/* Ajuste de opacidade baseado no tema */
 .light .webgl-background {
   @apply opacity-15;
-}
-
-/* Tablet e Desktop - 768px+ */
-@media (min-width: 768px) {
-  .webgl-background {
-    @apply opacity-30;
-  }
-
-  .light .webgl-background {
-    @apply opacity-20;
-  }
 }
 

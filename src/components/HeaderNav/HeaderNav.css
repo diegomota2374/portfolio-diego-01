@@ -1,7 +1,6 @@
-@import "tailwindcss";
+
 @reference "../../index.css";
 
-/* Mobile First - Estilos base para mobile */
 .header-nav {
   @apply fixed top-[60px] left-0 right-0 z-50 py-3 md:py-4;
   background-color: rgba(10, 14, 39, 0.6);
@@ -25,9 +24,8 @@
   @apply shadow-[0_4px_20px_rgba(0,0,0,0.1)];
 }
 
-/* Mobile First - Estilos base para mobile */
 .header-nav__container {
-  @apply max-w-container mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center;
+  @apply dmc-container flex justify-between items-center;
 }
 
 .header-nav__logo {
@@ -46,12 +44,10 @@
   @apply gap-4 md:gap-6 lg:gap-8 list-none m-0 p-0;
 }
 
-/* Menu mobile visível por padrão */
 .header-nav__mobile {
   @apply flex lg:hidden;
 }
 
-/* Menu desktop escondido por padrão */
 .header-nav__list--desktop {
   @apply hidden lg:flex;
 }
