@@ -1,0 +1,221 @@
+/**
+ * Design System Utility Classes
+ * 
+ * This file contains all custom utility classes for the project.
+ * These utilities are used in conjunction with Tailwind CSS.
+ */
+
+/* ============================================
+   FONT UTILITIES
+   ============================================ */
+@utility font-display {
+  font-family: var(--font-family-display);
+}
+
+/* ============================================
+   COLOR UTILITIES - DARK MODE
+   ============================================ */
+@utility bg-dark-primary {
+  background-color: var(--color-dark-primary);
+}
+
+@utility bg-dark-accent {
+  background-color: var(--color-dark-accent);
+}
+
+@utility bg-dark-bg {
+  background-color: var(--color-dark-bg);
+}
+
+@utility bg-dark-secondary {
+  background-color: var(--color-dark-secondary);
+}
+
+@utility text-dark-text {
+  color: var(--color-dark-text);
+}
+
+@utility text-dark-text-muted {
+  color: var(--color-dark-text-muted);
+}
+
+@utility text-dark-accent {
+  color: var(--color-dark-accent);
+}
+
+@utility text-dark-primary {
+  color: var(--color-dark-primary);
+}
+
+@utility border-dark-border {
+  border-color: var(--color-dark-border);
+}
+
+@utility border-dark-accent {
+  border-color: var(--color-dark-accent);
+}
+
+@utility border-dark-border-strong {
+  border-color: var(--color-dark-border-strong);
+}
+
+/* ============================================
+   COLOR UTILITIES - LIGHT MODE
+   ============================================ */
+@utility bg-light-primary {
+  background-color: var(--color-light-primary);
+}
+
+@utility bg-light-accent {
+  background-color: var(--color-light-accent);
+}
+
+@utility bg-light-bg {
+  background-color: var(--color-light-bg);
+}
+
+@utility bg-light-secondary {
+  background-color: var(--color-light-secondary);
+}
+
+@utility text-light-text {
+  color: var(--color-light-text);
+}
+
+@utility text-light-text-muted {
+  color: var(--color-light-text-muted);
+}
+
+@utility text-light-primary {
+  color: var(--color-light-primary);
+}
+
+@utility border-light-border {
+  border-color: var(--color-light-border);
+}
+
+@utility border-light-primary {
+  border-color: var(--color-light-primary);
+}
+
+@utility border-light-border-strong {
+  border-color: var(--color-light-border-strong);
+}
+
+/* ============================================
+   SHADOW UTILITIES
+   ============================================ */
+@utility shadow-glow-green {
+  box-shadow: var(--shadow-glow-green);
+}
+
+@utility shadow-glow-blue {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+@utility shadow-glow-green-sm {
+  box-shadow: var(--shadow-glow-green-sm);
+}
+
+@utility shadow-glow-blue-sm {
+  box-shadow: var(--shadow-glow-blue-sm);
+}
+
+@utility shadow-glow-green-md {
+  box-shadow: var(--shadow-glow-green-md);
+}
+
+@utility shadow-glow-blue-md {
+  box-shadow: var(--shadow-glow-blue-md);
+}
+
+@utility shadow-glass {
+  box-shadow: var(--shadow-glass);
+}
+
+@utility shadow-glass-light {
+  box-shadow: var(--shadow-glass-light);
+}
+
+/* ============================================
+   CONTAINER UTILITIES
+   ============================================ */
+@utility dmc-container {
+  @apply px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 mx-auto;
+  max-width: var(--max-w-container);
+}
+
+/* ============================================
+   GRADIENT UTILITIES - FROM
+   ============================================ */
+@utility from-dark-primary {
+  --gradient-from-color: var(--color-dark-primary);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+@utility from-dark-bg {
+  --gradient-from-color: var(--color-dark-bg);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+@utility from-dark-accent {
+  --gradient-from-color: var(--color-dark-accent);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+@utility from-light-primary {
+  --gradient-from-color: var(--color-light-primary);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+@utility from-light-accent {
+  --gradient-from-color: var(--color-light-accent);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+@utility from-gradient-start {
+  --gradient-from-color: var(--color-gradient-start);
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, transparent);
+}
+
+/* ============================================
+   GRADIENT UTILITIES - TO
+   ============================================ */
+@utility to-dark-primary {
+  --gradient-to-color: var(--color-dark-primary);
+}
+
+@utility to-dark-bg {
+  --gradient-to-color: var(--color-dark-bg);
+}
+
+@utility to-dark-accent {
+  --gradient-to-color: var(--color-dark-accent);
+}
+
+@utility to-light-primary {
+  --gradient-to-color: var(--color-light-primary);
+}
+
+@utility to-light-accent {
+  --gradient-to-color: var(--color-light-accent);
+}
+
+@utility to-light-bg {
+  --gradient-to-color: var(--color-light-bg);
+}
+
+@utility to-gradient-end {
+  --gradient-to-color: var(--color-gradient-end);
+}
+
+/* ============================================
+   OUTLINE UTILITIES
+   ============================================ */
+@utility outline-dark-accent {
+  outline-color: var(--color-dark-accent);
+}
+
+@utility outline-light-primary {
+  outline-color: var(--color-light-primary);
+}
