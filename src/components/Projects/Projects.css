@@ -1,8 +1,8 @@
-@import "tailwindcss";
+/* Tailwind já está importado globalmente em index.css */
 @reference "../../index.css";
 
 .projects {
-  @apply py-24 px-8 min-h-screen;
+  @apply py-24 min-h-screen;
   @apply bg-dark-primary;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .projects__container {
-  @apply max-w-container mx-auto w-full;
+  @apply dmc-container w-full;
 }
 
 .projects__title {

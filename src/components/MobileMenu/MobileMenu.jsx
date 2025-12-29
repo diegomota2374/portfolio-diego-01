@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useLanguage } from '../../contexts/LanguageContext'
+import { useTheme } from '../../contexts/ThemeContext'
 import './MobileMenu.css'
 
 const MobileMenu = () => {
-  const { t } = useLanguage()
+  const { t, language, toggleLanguage } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
+  const [isHeaderTopHidden, setIsHeaderTopHidden] = useState(false)
 
   useEffect(() => {
     // Previne scroll do body quando menu está aberto
@@ -19,6 +22,17 @@ const MobileMenu = () => {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  useEffect(() => {
+    // Detecta quando HeaderTop está escondido (quando HeaderNav está sticky)
+    const handleScroll = () => {
+      setIsHeaderTopHidden(window.scrollY > 100)
+    }
+
+    handleScroll() // Verifica no mount
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -68,7 +82,7 @@ const MobileMenu = () => {
             className={`mobile-menu ${isOpen ? 'mobile-menu--open' : ''}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <ul className="mobile-menu__list">
+            <ul className={`mobile-menu__list ${isHeaderTopHidden ? 'mobile-menu__list--sticky' : ''}`}>
               {menuItems.map((item) => (
                 <li key={item.id} className="mobile-menu__item">
                   <a
@@ -83,6 +97,28 @@ const MobileMenu = () => {
                   </a>
                 </li>
               ))}
+              {isHeaderTopHidden && (
+                <li className="mobile-menu__item mobile-menu__item--controls">
+                  <div className="mobile-menu__controls">
+                    <button
+                      className="mobile-menu__control-btn mobile-menu__control-btn--language"
+                      onClick={toggleLanguage}
+                      aria-label={language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+                      title={language === 'pt' ? 'EN' : 'PT'}
+                    >
+                      {language === 'pt' ? 'EN' : 'PT'}
+                    </button>
+                    <button
+                      className="mobile-menu__control-btn mobile-menu__control-btn--theme"
+                      onClick={toggleTheme}
+                      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Mudar para modo escuro'}
+                      title={theme === 'dark' ? 'Light' : 'Dark'}
+                    >
+                      {theme === 'dark' ? '☀️' : '🌙'}
+                    </button>
+                  </div>
+                </li>
+              )}
             </ul>
           </nav>
         </div>,

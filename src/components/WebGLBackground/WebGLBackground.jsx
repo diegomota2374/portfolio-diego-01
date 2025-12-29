@@ -12,11 +12,9 @@ const WebGLBackground = () => {
   useEffect(() => {
     if (!mountRef.current) return
 
-    // Scene setup
     const scene = new THREE.Scene()
     sceneRef.current = scene
 
-    // Camera setup
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -26,35 +24,30 @@ const WebGLBackground = () => {
     camera.position.z = 5
     cameraRef.current = camera
 
-    // Renderer setup - Mobile First: otimizações para performance
     const isMobile = window.innerWidth < 768
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024
     const renderer = new THREE.WebGLRenderer({
       canvas: mountRef.current,
       alpha: true,
-      antialias: !isMobile // Desabilita antialiasing em mobile para melhor performance
+      antialias: !isMobile
     })
     renderer.setSize(window.innerWidth, window.innerHeight)
-    // Limita pixel ratio em mobile para melhor performance
     renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2))
     rendererRef.current = renderer
 
-    // Create particles - Mobile First: menos partículas em mobile
     const particlesGeometry = new THREE.BufferGeometry()
     const particlesCount = isMobile ? 800 : isTablet ? 1200 : 2000
     const positions = new Float32Array(particlesCount * 3)
     const colors = new Float32Array(particlesCount * 3)
 
-    // Cores do gradiente do projeto
-    const color1 = new THREE.Color(0x00ff88) // Verde
-    const color2 = new THREE.Color(0x4a90e2) // Azul
+    const color1 = new THREE.Color(0x00ff88)
+    const color2 = new THREE.Color(0x4a90e2)
 
     for (let i = 0; i < particlesCount * 3; i += 3) {
       positions[i] = (Math.random() - 0.5) * 20
       positions[i + 1] = (Math.random() - 0.5) * 20
       positions[i + 2] = (Math.random() - 0.5) * 20
 
-      // Interpolação de cores
       const mixFactor = Math.random()
       const color = color1.clone().lerp(color2, mixFactor)
       colors[i] = color.r
@@ -65,7 +58,6 @@ const WebGLBackground = () => {
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
 
-    // Material das partículas
     const particlesMaterial = new THREE.PointsMaterial({
       size: 0.05,
       vertexColors: true,
@@ -77,14 +69,13 @@ const WebGLBackground = () => {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial)
     scene.add(particles)
 
-    // Linhas conectando partículas próximas (otimizado)
     let lineGeometry = null
     let lineMaterial = null
     let lines = null
     
     const linePositions = []
     const lineColors = []
-    const maxConnections = 3 // Limita conexões por partícula para performance
+    const maxConnections = 3
 
     for (let i = 0; i < particlesCount; i++) {
       const i3 = i * 3
@@ -124,7 +115,6 @@ const WebGLBackground = () => {
       scene.add(lines)
     }
 
-    // Animation
     const clock = new THREE.Clock()
 
     const animate = () => {
@@ -132,11 +122,9 @@ const WebGLBackground = () => {
 
       const elapsedTime = clock.getElapsedTime()
 
-      // Rotação suave das partículas
       particles.rotation.x = elapsedTime * 0.1
       particles.rotation.y = elapsedTime * 0.15
 
-      // Movimento suave das partículas
       const positions = particlesGeometry.attributes.position.array
       for (let i = 0; i < particlesCount; i++) {
         const i3 = i * 3
@@ -149,19 +137,16 @@ const WebGLBackground = () => {
 
     animate()
 
-    // Handle resize - Mobile First: ajusta performance baseado no tamanho
     const handleResize = () => {
       const isMobileNow = window.innerWidth < 768
       camera.aspect = window.innerWidth / window.innerHeight
       camera.updateProjectionMatrix()
       renderer.setSize(window.innerWidth, window.innerHeight)
-      // Ajusta pixel ratio baseado no tamanho da tela
       renderer.setPixelRatio(isMobileNow ? 1 : Math.min(window.devicePixelRatio, 2))
     }
 
     window.addEventListener('resize', handleResize)
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize)
       if (animationIdRef.current) {

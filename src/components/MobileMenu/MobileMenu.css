@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* Tailwind já está importado globalmente em index.css */
 @reference "../../index.css";
 
 .mobile-menu__toggle {
@@ -82,6 +82,10 @@
   @apply px-4 md:px-6 pt-[12rem];
 }
 
+.mobile-menu__list--sticky {
+  @apply pt-[9rem];
+}
+
 .mobile-menu__item {
   @apply m-0;
 }
@@ -147,6 +151,10 @@
   animation-delay: 0.3s;
 }
 
+.mobile-menu--open .mobile-menu__item:nth-child(6) {
+  animation-delay: 0.35s;
+}
+
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -156,5 +164,55 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Controles do HeaderTop no menu mobile */
+.mobile-menu__item--controls {
+  @apply mt-6 pt-6;
+  border-top: 1px solid var(--color-dark-border);
+}
+
+.light .mobile-menu__item--controls {
+  border-top-color: var(--color-light-border);
+}
+
+.mobile-menu__controls {
+  @apply flex gap-3 px-4;
+}
+
+.mobile-menu__control-btn {
+  @apply flex-1 px-4 py-3 rounded-lg text-sm font-semibold cursor-pointer;
+  @apply transition-all duration-300 ease-in-out;
+  border: 1px solid var(--color-dark-border-strong);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-dark-text);
+}
+
+.light .mobile-menu__control-btn {
+  border-color: var(--color-light-border-strong);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--color-light-text);
+}
+
+.mobile-menu__control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  @apply -translate-y-0.5;
+}
+
+.light .mobile-menu__control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-menu__control-btn:active {
+  @apply translate-y-0;
+}
+
+.mobile-menu__control-btn:focus {
+  @apply outline-2 outline-offset-2;
+  outline-color: var(--color-dark-accent);
+}
+
+.light .mobile-menu__control-btn:focus {
+  outline-color: var(--color-light-primary);
 }
 
