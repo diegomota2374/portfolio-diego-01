@@ -11,7 +11,8 @@ export const translations = {
       title: 'Diego Mota Cavalcante',
       subtitle: 'Desenvolvedor Front-end',
       description: 'Especialista em React, Next.js e WordPress',
-      cta: 'Ver Projetos'
+      cta: 'Ver Projetos',
+      interactionHint: 'Move seu mouse e clique no avatar para interagir'
     },
     about: {
       title: 'Sobre Mim',
@@ -72,7 +73,8 @@ export const translations = {
       title: 'Diego Mota Cavalcante',
       subtitle: 'Front-end Developer',
       description: 'Specialist in React, Next.js and WordPress',
-      cta: 'View Projects'
+      cta: 'View Projects',
+      interactionHint: 'Move your mouse and click on the avatar to interact'
     },
     about: {
       title: 'About Me',

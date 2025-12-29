@@ -1,0 +1,162 @@
+@reference "../../index.css";
+
+/* Base button styles */
+.btn {
+  @apply font-semibold rounded-xl cursor-pointer;
+  @apply transition-all duration-300 ease-in-out uppercase tracking-wide border-none;
+  @apply inline-flex items-center justify-center;
+  @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1;
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  position: relative;
+}
+
+/* Ensure text is always on top */
+.btn > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Variants - Primary with liquid gradient effect */
+.btn--primary {
+  @apply text-dark-primary;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* Base gradient - green to blue */
+  background: linear-gradient(135deg, #00ff88 0%, #4a90e2 100%);
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  transition: background-position 0.8s cubic-bezier(0.45, 0, 0.15, 1),
+              transform 0.3s ease-out,
+              box-shadow 0.3s ease-out;
+}
+
+/* Inverted gradient layer for smooth transition */
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Inverted gradient - blue to green */
+  background: linear-gradient(135deg, #4a90e2 0%, #00ff88 50%, #4a90e2 100%);
+  background-size: 300% 300%;
+  background-position: 100% 50%;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.45, 0, 0.15, 1),
+              background-position 0.8s cubic-bezier(0.45, 0, 0.15, 1);
+  z-index: -1;
+}
+
+/* Shimmer effect layer */
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn--primary:hover {
+  @apply -translate-y-1 shadow-glow-green;
+  /* Shift main gradient */
+  background-position: 100% 50%;
+}
+
+.btn--primary:hover::before {
+  /* Fade in and shift inverted gradient */
+  opacity: 1;
+  background-position: 0% 50%;
+}
+
+.btn--primary:hover::after {
+  /* Shimmer passes through */
+  left: 100%;
+}
+
+.btn--primary:active {
+  @apply -translate-y-0.5;
+  transition: transform 0.1s ease;
+}
+
+.btn--primary:focus {
+  @apply ring-dark-accent;
+}
+
+.btn--secondary {
+  @apply bg-dark-secondary text-dark-text border border-dark-border;
+}
+
+.light .btn--secondary {
+  @apply bg-light-secondary text-light-text border-light-border;
+}
+
+.btn--secondary:hover {
+  @apply -translate-y-1 shadow-md;
+  @apply bg-dark-accent text-white;
+}
+
+.light .btn--secondary:hover {
+  @apply bg-light-accent;
+}
+
+.btn--outline {
+  @apply bg-transparent border-2 border-gradient-start text-gradient-start;
+  background: transparent;
+}
+
+.btn--outline:hover {
+  @apply bg-gradient-start text-dark-primary -translate-y-1;
+}
+
+/* Sizes - Mobile first */
+.btn--small {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn--medium {
+  /* Mobile */
+  @apply px-6 py-3 text-base;
+  /* Desktop */
+  @apply md:px-10 md:py-4 md:text-lg;
+}
+
+.btn--large {
+  /* Mobile */
+  @apply px-8 py-4 text-lg;
+  /* Desktop */
+  @apply md:px-12 md:py-5 md:text-xl;
+}
+
+/* Modifiers */
+.btn--full-width {
+  @apply w-full;
+}
+
+.btn--disabled {
+  @apply opacity-50 cursor-not-allowed;
+  pointer-events: none;
+}
+
+/* Icon support */
+.btn__icon {
+  @apply inline-flex items-center justify-center;
+  margin-right: 0.5rem;
+}
+
+.btn__icon:last-child {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+

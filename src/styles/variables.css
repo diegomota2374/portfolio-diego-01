@@ -1,62 +1,18 @@
 /**
- * Variáveis CSS do Design System
+ * Design System CSS Variables
  * 
- * Este arquivo contém todas as variáveis CSS customizadas do projeto.
- * Use estas variáveis nos arquivos CSS para manter consistência.
+ * This file contains all custom CSS variables for the project.
+ * All variables are defined in @theme for Tailwind CSS v4.
+ * They can also be used directly in CSS with var(--variable-name).
  * 
- * Exemplo de uso:
- * background-color: var(--color-dark-primary);
- * color: var(--color-dark-text);
- * transition: var(--transition-base);
+ * Usage example:
+ * In HTML: className="bg-dark-primary"
+ * In CSS: background-color: var(--color-dark-primary);
  */
 
-:root {
+@theme {
   /* ============================================
-     CORES - DARK MODE
-     ============================================ */
-  --color-dark-primary: #0a0e27;
-  --color-dark-accent: #00ff88;
-  --color-dark-bg: #0f1419;
-  --color-dark-secondary: #1a1f3a;
-  --color-dark-text: #ffffff;
-  --color-dark-text-muted: rgba(255, 255, 255, 0.7);
-  --color-dark-text-subtle: rgba(255, 255, 255, 0.5);
-  --color-dark-border: rgba(255, 255, 255, 0.1);
-  --color-dark-border-strong: rgba(255, 255, 255, 0.2);
-  
-  /* ============================================
-     CORES - LIGHT MODE
-     ============================================ */
-  --color-light-primary: #4a90e2;
-  --color-light-accent: #f5f7fa;
-  --color-light-bg: #ffffff;
-  --color-light-secondary: #e8ecf1;
-  --color-light-text: #0a0e27;
-  --color-light-text-muted: rgba(10, 14, 39, 0.7);
-  --color-light-text-subtle: rgba(10, 14, 39, 0.5);
-  --color-light-border: rgba(0, 0, 0, 0.1);
-  --color-light-border-strong: rgba(0, 0, 0, 0.2);
-  
-  /* ============================================
-     GRADIENTES
-     ============================================ */
-  --gradient-primary: linear-gradient(135deg, #00ff88, #4a90e2);
-  --gradient-text: linear-gradient(135deg, #00ff88, #4a90e2);
-  --gradient-bg-dark: linear-gradient(135deg, #0a0e27 0%, #0f1419 100%);
-  --gradient-bg-light: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-  
-  /* ============================================
-     ESPAÇAMENTOS
-     ============================================ */
-  --spacing-container: 1200px;
-  --spacing-container-padding: 2rem;
-  --spacing-section: 6rem;
-  --spacing-section-mobile: 4rem;
-  --spacing-header-top: 60px;
-  --spacing-header-nav: 1rem;
-  
-  /* ============================================
-     TIPOGRAFIA
+     TYPOGRAPHY - FONTS
      ============================================ */
   --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-display: 'Poppins', 'Inter', system-ui, sans-serif;
@@ -80,12 +36,58 @@
   --line-height-loose: 2;
   
   /* ============================================
-     TRANSITIONS
+     COLORS - DARK MODE
      ============================================ */
-  --transition-base: 0.3s ease-in-out;
-  --transition-fast: 0.15s ease-in-out;
-  --transition-slow: 0.5s ease-in-out;
-  --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --color-dark-primary: #0a0e27;
+  --color-dark-accent: #00ff88;
+  --color-dark-bg: #0f1419;
+  --color-dark-secondary: #1a1f3a;
+  --color-dark-text: #ffffff;
+  --color-dark-text-muted: rgba(255, 255, 255, 0.7);
+  --color-dark-text-subtle: rgba(255, 255, 255, 0.5);
+  --color-dark-border: rgba(255, 255, 255, 0.1);
+  --color-dark-border-strong: rgba(255, 255, 255, 0.2);
+  
+  /* ============================================
+     COLORS - LIGHT MODE
+     ============================================ */
+  --color-light-primary: #4a90e2;
+  --color-light-accent: #f5f7fa;
+  --color-light-bg: #ffffff;
+  --color-light-secondary: #e8ecf1;
+  --color-light-text: #0a0e27;
+  --color-light-text-muted: rgba(10, 14, 39, 0.7);
+  --color-light-text-subtle: rgba(10, 14, 39, 0.5);
+  --color-light-border: rgba(0, 0, 0, 0.1);
+  --color-light-border-strong: rgba(0, 0, 0, 0.2);
+  
+  /* ============================================
+     COLORS - GRADIENTS
+     ============================================ */
+  --color-gradient-start: #00ff88;
+  --color-gradient-end: #4a90e2;
+  
+  /* ============================================
+     SPACING
+     ============================================ */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+  --spacing-container: 1200px;
+  --spacing-container-padding: 2rem;
+  --spacing-section: 6rem;
+  --spacing-section-mobile: 4rem;
+  --spacing-header-top: 60px;
+  --spacing-header-nav: 1rem;
+  
+  /* ============================================
+     CONTAINER MAX WIDTHS
+     ============================================ */
+  --max-w-container: 1440px;
+  --max-w-container-sm: 640px;
+  --max-w-container-md: 768px;
+  --max-w-container-lg: 1024px;
+  --max-w-container-xl: 1280px;
   
   /* ============================================
      BORDER RADIUS
@@ -94,6 +96,8 @@
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
   --radius-full: 9999px;
   
   /* ============================================
@@ -104,24 +108,36 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-  
   --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
   --shadow-glass-light: 0 8px 32px rgba(0, 0, 0, 0.1);
   --shadow-glow-green: 0 8px 25px rgba(0, 255, 136, 0.4);
   --shadow-glow-blue: 0 8px 25px rgba(74, 144, 226, 0.4);
   --shadow-glow-green-sm: 0 4px 15px rgba(0, 255, 136, 0.3);
   --shadow-glow-blue-sm: 0 4px 15px rgba(74, 144, 226, 0.3);
+  --shadow-glow-green-md: 0 12px 40px rgba(0, 255, 136, 0.2);
+  --shadow-glow-blue-md: 0 12px 40px rgba(74, 144, 226, 0.2);
   
   /* ============================================
      BACKDROP BLUR
      ============================================ */
+  --blur-xs: 2px;
   --blur-sm: 5px;
   --blur-md: 10px;
   --blur-lg: 20px;
   --blur-xl: 40px;
   
   /* ============================================
-     Z-INDEX
+     TRANSITIONS & DURATIONS
+     ============================================ */
+  --transition-base: 0.3s ease-in-out;
+  --transition-fast: 0.15s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --duration-400: 400ms;
+  --duration-600: 600ms;
+  
+  /* ============================================
+     Z-INDEX SCALE
      ============================================ */
   --z-base: 1;
   --z-dropdown: 100;
@@ -134,7 +150,19 @@
 }
 
 /* ============================================
-   UTILITÁRIOS DE CORES POR TEMA
+   GRADIENTS (Complex values - CSS only)
+   These use the color variables defined above
+   ============================================ */
+:root {
+  --gradient-primary: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  --gradient-text: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  --gradient-bg-dark: linear-gradient(135deg, var(--color-dark-primary) 0%, var(--color-dark-bg) 100%);
+  --gradient-bg-light: linear-gradient(135deg, var(--color-light-accent) 0%, var(--color-light-bg) 100%);
+}
+
+/* ============================================
+   THEME UTILITIES
+   Dynamic color variables based on active theme
    ============================================ */
 .light {
   --color-primary: var(--color-light-primary);
@@ -153,4 +181,3 @@
   --color-text-muted: var(--color-dark-text-muted);
   --color-border: var(--color-dark-border);
 }
-
