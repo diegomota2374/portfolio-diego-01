@@ -45,7 +45,8 @@ export const translations = {
       languages: 'Linguagens',
       frameworks: 'Frameworks',
       tools: 'Ferramentas',
-      databases: 'Bancos de Dados'
+      databases: 'Bancos de Dados',
+      clickHint: 'Clique para ver'
     },
     contact: {
       title: 'Entre em Contato',
@@ -107,7 +108,8 @@ export const translations = {
       languages: 'Languages',
       frameworks: 'Frameworks',
       tools: 'Tools',
-      databases: 'Databases'
+      databases: 'Databases',
+      clickHint: 'Click to see'
     },
     contact: {
       title: 'Get in Touch',
