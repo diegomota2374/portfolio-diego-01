@@ -107,9 +107,82 @@ const Projects = () => {
 
     window.addEventListener('resize', handleResize)
 
+    // Track if we're in keyboard navigation mode
+    let isKeyboardNav = false
+    let scrollTimeout
+
+    // Simple focus handler to reveal project when any element inside receives focus
+    const handleFocusIn = (e) => {
+      const focusedElement = e.target
+      const projectContainer = focusedElement.closest('.projects__image')
+      
+      if (projectContainer) {
+        isKeyboardNav = true
+        const projectImages = containerRef.current?.querySelectorAll('.projects__image')
+        if (projectImages) {
+          const projectIndex = Array.from(projectImages).indexOf(projectContainer)
+          if (projectIndex !== -1) {
+            // Reveal the focused project
+            projectImages.forEach((img, idx) => {
+              if (idx === projectIndex) {
+                img.style.clipPath = visibleClipPath
+              } else {
+                img.style.clipPath = hiddenClipPath
+              }
+            })
+          }
+        }
+      }
+    }
+
+    // Handle scroll to let ScrollTrigger retake control
+    const handleScroll = () => {
+      // Clear any pending timeout
+      clearTimeout(scrollTimeout)
+      
+      // Check if focus is still inside a project
+      const activeElement = document.activeElement
+      const isFocusingProject = activeElement?.closest('.projects__image') !== null
+      
+      // Get scroll position relative to wrapper
+      const wrapperRect = wrapper.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const wrapperTop = wrapperRect.top + scrollTop
+      const currentScroll = scrollTop - wrapperTop
+      
+      // If scrolling and not focusing a project, let ScrollTrigger take control
+      if (isKeyboardNav && !isFocusingProject) {
+        scrollTimeout = setTimeout(() => {
+          isKeyboardNav = false
+          // Refresh ScrollTrigger to update based on scroll position
+          ScrollTrigger.refresh()
+          
+          // Ensure first item is visible when at the top
+          if (currentScroll <= 100 && images.length > 0) {
+            const firstImage = images[0]
+            firstImage.style.clipPath = visibleClipPath
+          }
+        }, 100)
+      } else if (!isKeyboardNav && currentScroll <= 100 && images.length > 0) {
+        // If not in keyboard nav mode and at the top, ensure first item is visible
+        const firstImage = images[0]
+        const currentClipPath = firstImage.style.clipPath || gsap.getProperty(firstImage, 'clipPath')
+        if (currentClipPath !== visibleClipPath) {
+          firstImage.style.clipPath = visibleClipPath
+        }
+      }
+    }
+
+    // Listen for focus events on any element inside projects
+    document.addEventListener('focusin', handleFocusIn)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize)
+      document.removeEventListener('focusin', handleFocusIn)
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimeout)
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [t])
