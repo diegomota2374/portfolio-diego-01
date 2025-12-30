@@ -27,16 +27,16 @@ export const translations = {
       viewCode: 'Ver Código',
       items: [
         {
-          title: 'Projeto 1',
-          description: 'Descrição do projeto desenvolvido com React e Next.js'
+          title: 'Cruz Vermelha Portuguesa',
+          description: 'Landing page institucional e educativa para a iniciativa "Guia de Etiqueta na Saúde Mental", promovida pela Cruz Vermelha Portuguesa. O objetivo é sensibilizar a população sobre boas práticas no contexto da saúde mental, com enfoque especial no papel da PSP. Desenvolvido em WordPress com gestão de conteúdos simplificada, design acessível e responsivo (mobile-first).'
         },
         {
-          title: 'Projeto 2',
-          description: 'Descrição do projeto desenvolvido com WordPress e HubSpot'
+          title: 'Haipe Studio',
+          description: 'Ecossistema digital e de marca que une automação inteligente com precisão, clareza e confiança. O projeto envolveu a criação de uma identidade visual que combina tipografia ousada, ritmo geométrico e contrastes vibrantes. Desenvolvido em WordPress com PHP e MySQL, criando uma experiência que incorpora automação através de clareza e precisão.'
         },
         {
-          title: 'Projeto 3',
-          description: 'Descrição do projeto desenvolvido com React Native'
+          title: 'Portugal para o Conselho de Segurança da ONU',
+          description: 'Website oficial da candidatura de Portugal ao Conselho de Segurança das Nações Unidas para o período 2027-2028. O projeto apresenta as prioridades e contribuições de Portugal na ONU. Desenvolvido com WordPress e animações avançadas utilizando GSAP ScrollTrigger, oferecendo uma experiência imersiva com seções interativas.'
         }
       ]
     },
@@ -89,16 +89,16 @@ export const translations = {
       viewCode: 'View Code',
       items: [
         {
-          title: 'Project 1',
-          description: 'Project description developed with React and Next.js'
+          title: 'Portuguese Red Cross',
+          description: 'Institutional and educational landing page for the "Mental Health Etiquette Guide" initiative, promoted by the Portuguese Red Cross. The goal is to raise awareness about good practices in mental health, with special focus on the role of PSP. Developed in WordPress with simplified content management, accessible and responsive (mobile-first) design.'
         },
         {
-          title: 'Project 2',
-          description: 'Project description developed with WordPress and HubSpot'
+          title: 'Haipe Studio',
+          description: 'Digital and brand ecosystem that unites intelligent automation with precision, clarity and confidence. The project involved creating a visual identity that combines bold typography, geometric rhythm and vibrant contrasts. Developed in WordPress with PHP and MySQL, creating an experience that incorporates automation through clarity and precision.'
         },
         {
-          title: 'Project 3',
-          description: 'Project description developed with React Native'
+          title: 'Portugal for UN Security Council',
+          description: 'Official website of Portugal\'s candidacy to the United Nations Security Council for the period 2027-2028. The project presents Portugal\'s priorities and contributions at the UN. Developed with WordPress and advanced animations using GSAP ScrollTrigger, offering an immersive experience with interactive sections.'
         }
       ]
     },

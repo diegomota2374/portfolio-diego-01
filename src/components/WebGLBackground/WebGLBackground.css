@@ -5,6 +5,7 @@
   @apply fixed inset-0 w-full h-full;
   @apply pointer-events-none;
   @apply opacity-20;
+  z-index: 1;
 }
 
 .light .webgl-background {
