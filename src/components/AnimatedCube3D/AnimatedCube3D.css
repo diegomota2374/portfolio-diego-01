@@ -1,0 +1,37 @@
+@reference "../../index.css";
+
+.animated-cube-3d {
+  @apply absolute pointer-events-none;
+  width: 150px;
+  height: 150px;
+  /* Mobile: top right */
+  bottom: -6%;
+  right: 5%;
+  z-index: 15; /* Above content */
+}
+
+.animated-cube-3d canvas {
+  @apply w-full h-full;
+  display: block;
+}
+
+/* Desktop: bottom left - larger size */
+@media (min-width: 1024px) {
+  .animated-cube-3d {
+    top: auto;
+    right: auto;
+    bottom: -50%;
+    left: -5%;
+    width: 520px;
+    height: 520px;
+  }
+}
+
+/* Smaller size on mobile */
+@media (max-width: 1023px) {
+  .animated-cube-3d {
+    width: 120px;
+    height: 120px;
+  }
+}
+
