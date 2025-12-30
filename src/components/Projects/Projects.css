@@ -91,7 +91,7 @@
   @apply w-full lg:w-auto lg:flex-1 lg:max-w-lg;
   @apply h-full justify-start;
   @apply mt-[6rem] md:mt-[12rem] lg:mt-0;
-  @apply flex flex-col text-left;
+  @apply flex flex-col text-left lg:max-w-[20rem];
 }
 
 .projects__title-main {

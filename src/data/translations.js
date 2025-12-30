@@ -57,6 +57,9 @@ export const translations = {
       sending: 'Enviando...',
       success: 'Mensagem enviada com sucesso!',
       error: 'Erro ao enviar mensagem. Tente novamente.',
+      errorAuth: 'Erro de autenticação. Verifique as configurações do EmailJS.',
+      errorRequest: 'Erro na requisição. Verifique a configuração.',
+      errorNetwork: 'Sem conexão com a internet.',
       locationLabel: 'Localização',
       phoneLabel: 'Telefone',
       emailLabel: 'E-mail'
@@ -120,6 +123,9 @@ export const translations = {
       sending: 'Sending...',
       success: 'Message sent successfully!',
       error: 'Error sending message. Please try again.',
+      errorAuth: 'Authentication error. Please check EmailJS settings.',
+      errorRequest: 'Request error. Please check configuration.',
+      errorNetwork: 'No internet connection.',
       locationLabel: 'Location',
       phoneLabel: 'Phone',
       emailLabel: 'Email'

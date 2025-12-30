@@ -61,6 +61,36 @@
   @apply flex flex-col gap-4;
 }
 
+/* Swiper wrapper for categories in mobile/tablet */
+.skills__swiper-wrapper {
+  @apply relative;
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 30px 0;
+}
+
+.skills__swiper-container {
+  @apply flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.skills__swiper-slide {
+  @apply flex-shrink-0;
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.skills__swiper-slide .skills__category {
+  width: 100%;
+  margin: 0;
+}
+
 /* Card container with 3D flip effect */
 .skills__card {
   @apply cursor-pointer;
@@ -186,30 +216,121 @@
 }
 
 /* Hover effect on card container */
-.skills__card:not(.skills__card--flipped):hover .skills__card-front {
-  @apply scale-105;
+@media (hover: hover) and (pointer: fine) {
+  .skills__card:not(.skills__card--flipped):hover .skills__card-front {
+    @apply scale-105;
+    background: rgba(0, 255, 136, 0.2);
+    @apply border-dark-accent;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+  }
+
+  .light .skills__card:not(.skills__card--flipped):hover .skills__card-front {
+    background: rgba(74, 144, 226, 0.2);
+    @apply border-light-primary;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  }
+}
+
+/* Swiper controls */
+.skills__swiper-controls {
+  @apply flex items-center justify-center gap-4 mt-6;
+}
+
+.skills__swiper-button {
+  @apply w-10 h-10 rounded-full;
+  @apply flex items-center justify-center;
+  @apply transition-all duration-300 ease-in-out;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  @apply text-dark-accent;
+  cursor: pointer;
+}
+
+.light .skills__swiper-button {
+  background: rgba(74, 144, 226, 0.1);
+  border-color: rgba(74, 144, 226, 0.3);
+  @apply text-light-primary;
+}
+
+.skills__swiper-button:hover {
   background: rgba(0, 255, 136, 0.2);
-  @apply border-dark-accent;
+  border-color: rgba(0, 255, 136, 0.5);
+  @apply scale-110;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
 }
 
-.light .skills__card:not(.skills__card--flipped):hover .skills__card-front {
+.light .skills__swiper-button:hover {
   background: rgba(74, 144, 226, 0.2);
-  @apply border-light-primary;
+  border-color: rgba(74, 144, 226, 0.5);
   box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
-@media (max-width: 768px) {
-  .skills {
-    @apply py-16 px-4;
-  }
+.skills__swiper-button:active {
+  @apply scale-95;
+}
 
+.skills__swiper-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.skills__swiper-pagination {
+  @apply flex items-center justify-center gap-2;
+}
+
+.skills__swiper-pagination-bullet {
+  @apply w-2 h-2 rounded-full;
+  @apply transition-all duration-300 ease-in-out;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.light .skills__swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.skills__swiper-pagination-bullet:hover {
+  @apply scale-125;
+  background: rgba(0, 255, 136, 0.5);
+}
+
+.light .skills__swiper-pagination-bullet:hover {
+  background: rgba(74, 144, 226, 0.5);
+}
+
+.skills__swiper-pagination-bullet--active {
+  @apply w-8;
+  background: rgba(0, 255, 136, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.light .skills__swiper-pagination-bullet--active {
+  background: rgba(74, 144, 226, 0.8);
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+@media (max-width: 1023px) {
+  .skills__grid {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
   .skills__title {
     @apply text-3xl mb-8;
   }
+}
+
+@media (min-width: 1024px) {
+  .skills__swiper-wrapper {
+    display: none;
+  }
 
   .skills__grid {
-    @apply grid-cols-1;
+    display: grid;
   }
 }
 
