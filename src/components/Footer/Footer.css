@@ -1,0 +1,74 @@
+/* Footer component styles */
+@reference "../../index.css";
+
+.footer {
+  @apply py-6 sm:py-8 border-t border-dark-border;
+  @apply transition-all duration-300 ease-in-out;
+  @apply relative;
+  z-index: 10;
+  background-color: rgba(10, 14, 39, 0.6);
+  @apply backdrop-blur-sm;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+.light .footer {
+  background-color: rgba(245, 247, 250, 0.6);
+  @apply border-light-border;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+.footer__container {
+  @apply dmc-container flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6;
+}
+
+.footer__copyright {
+  @apply text-xs sm:text-sm text-dark-text-muted;
+  @apply transition-colors duration-300;
+}
+
+.light .footer__copyright {
+  @apply text-light-text-muted;
+}
+
+.footer__controls {
+  @apply flex gap-2 sm:gap-4 ml-auto;
+}
+
+.footer__toggle {
+  @apply px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold cursor-pointer;
+  @apply transition-all duration-300 ease-in-out backdrop-blur-sm;
+  border: 1px solid var(--color-dark-border-strong);
+  background-color: rgba(255, 255, 255, 0.1);
+  @apply text-dark-text;
+}
+
+.light .footer__toggle {
+  @apply border-light-border-strong;
+  background-color: rgba(255, 255, 255, 0.5);
+  @apply text-light-text;
+}
+
+.footer__toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  @apply -translate-y-0.5;
+}
+
+.light .footer__toggle:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__toggle:active {
+  @apply translate-y-0;
+}
+
+.footer__toggle:focus {
+  @apply outline-2 outline-offset-2;
+  outline-color: var(--color-dark-accent);
+}
+
+.light .footer__toggle:focus {
+  outline-color: var(--color-light-primary);
+}
+

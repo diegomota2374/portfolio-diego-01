@@ -7,6 +7,8 @@ import About from './components/About/About'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import Contact from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
+import BackToTop3D from './components/BackToTop3D/BackToTop3D'
 import WebGLBackground from './components/WebGLBackground/WebGLBackground'
 import './App.css'
 
@@ -25,6 +27,8 @@ function App() {
             <Skills />
             <Contact />
           </main>
+          <Footer />
+          <BackToTop3D />
         </div>
       </LanguageProvider>
     </ThemeProvider>

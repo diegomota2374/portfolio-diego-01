@@ -63,6 +63,12 @@ export const translations = {
       locationLabel: 'Localização',
       phoneLabel: 'Telefone',
       emailLabel: 'E-mail'
+    },
+    footer: {
+      copyright: '© {year} Diego Mota Cavalcante. Todos os direitos reservados.'
+    },
+    backToTop: {
+      label: 'Voltar ao topo'
     }
   },
   en: {
@@ -129,6 +135,12 @@ export const translations = {
       locationLabel: 'Location',
       phoneLabel: 'Phone',
       emailLabel: 'Email'
+    },
+    footer: {
+      copyright: '© {year} Diego Mota Cavalcante. All rights reserved.'
+    },
+    backToTop: {
+      label: 'Back to top'
     }
   }
 }

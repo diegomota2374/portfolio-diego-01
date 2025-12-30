@@ -94,15 +94,29 @@
 /* Card container with 3D flip effect */
 .skills__card {
   @apply cursor-pointer;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-dark-accent focus-visible:ring-offset-2;
+  @apply focus:outline-none;
   perspective: 1000px;
   perspective-origin: center center;
   transform-style: preserve-3d;
   min-height: 100px;
+  position: relative;
 }
 
-.light .skills__card {
-  @apply focus-visible:ring-light-primary;
+.skills__card:focus-visible::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid var(--color-dark-accent);
+  border-radius: 2rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.light .skills__card:focus-visible::before {
+  border-color: var(--color-light-primary);
 }
 
 .skills__card-inner {
@@ -240,11 +254,28 @@
   @apply w-10 h-10 rounded-full;
   @apply flex items-center justify-center;
   @apply transition-all duration-300 ease-in-out;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus:outline-none;
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.3);
   @apply text-dark-accent;
   cursor: pointer;
+  position: relative;
+}
+
+.skills__swiper-button:focus-visible::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid var(--color-dark-accent);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.light .skills__swiper-button:focus-visible::before {
+  border-color: var(--color-light-primary);
 }
 
 .light .skills__swiper-button {
@@ -281,11 +312,28 @@
 .skills__swiper-pagination-bullet {
   @apply w-2 h-2 rounded-full;
   @apply transition-all duration-300 ease-in-out;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus:outline-none;
   background: rgba(255, 255, 255, 0.3);
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
+}
+
+.skills__swiper-pagination-bullet:focus-visible::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid var(--color-dark-accent);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.light .skills__swiper-pagination-bullet:focus-visible::before {
+  border-color: var(--color-light-primary);
 }
 
 .light .skills__swiper-pagination-bullet {

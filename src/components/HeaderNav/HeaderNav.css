@@ -32,12 +32,48 @@
   @apply flex items-center;
 }
 
+.header-nav__logo a {
+  @apply no-underline inline-block;
+  @apply transition-transform duration-300 ease-in-out;
+  @apply cursor-pointer;
+}
+
+.header-nav__logo a:hover {
+  @apply scale-110;
+}
+
 .header-nav__logo-text {
   @apply text-xl md:text-2xl font-display font-bold tracking-wider;
   background: var(--gradient-text);
   @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @apply transition-all duration-300 ease-in-out;
+  @apply relative;
+  display: inline-block;
+}
+
+.header-nav__logo a:hover .header-nav__logo-text {
+  @apply drop-shadow-[0_0_15px_rgba(0,255,136,0.6)];
+  filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.6));
+}
+
+.light .header-nav__logo a:hover .header-nav__logo-text {
+  @apply drop-shadow-[0_0_15px_rgba(74,144,226,0.6)];
+  filter: drop-shadow(0 0 15px rgba(74, 144, 226, 0.6));
+}
+
+.header-nav__logo a:active {
+  @apply scale-105;
+}
+
+.header-nav__logo a:focus {
+  @apply outline-2 outline-offset-2 rounded;
+  outline-color: var(--color-dark-accent);
+}
+
+.light .header-nav__logo a:focus {
+  outline-color: var(--color-light-primary);
 }
 
 .header-nav__list {

@@ -34,7 +34,15 @@ const HeaderNav = () => {
     <nav className={`header-nav ${isSticky ? 'header-nav--sticky' : ''}`}>
       <div className="header-nav__container">
         <div className="header-nav__logo">
-          <span className="header-nav__logo-text">DMC</span>
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('hero')
+            }}
+          >
+            <span className="header-nav__logo-text">DMC</span>
+          </a>
         </div>
         <ul className="header-nav__list header-nav__list--desktop">
           <li className="header-nav__item">
