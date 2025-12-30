@@ -69,7 +69,7 @@
 }
 
 .btn--primary:hover {
-  @apply -translate-y-1 shadow-glow-green;
+  @apply shadow-glow-green;
   /* Shift main gradient */
   background-position: 100% 50%;
 }
@@ -86,7 +86,7 @@
 }
 
 .btn--primary:active {
-  @apply -translate-y-0.5;
+  transform: scale(0.98);
   transition: transform 0.1s ease;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .btn--secondary:hover {
-  @apply -translate-y-1 shadow-md;
+  @apply shadow-md;
   @apply bg-dark-accent text-white;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .btn--outline:hover {
-  @apply bg-gradient-start text-dark-primary -translate-y-1;
+  @apply bg-gradient-start text-dark-primary;
 }
 
 /* Sizes - Mobile first */

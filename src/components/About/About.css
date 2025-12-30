@@ -176,22 +176,3 @@
     transform: none !important;
   }
 }
-
-@media (max-width: 768px) {
-  .about {
-    @apply py-16 px-4;
-  }
-
-  .about__title {
-    @apply text-3xl mb-8;
-  }
-
-  .about__text {
-    @apply p-6;
-  }
-
-  .about__paragraph {
-    @apply text-base;
-  }
-}
-

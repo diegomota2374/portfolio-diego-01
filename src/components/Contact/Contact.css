@@ -1,7 +1,9 @@
 @reference "../../index.css";
 
+/* Mobile First - Base styles */
 .contact {
-  @apply py-24 min-h-screen flex items-center;
+  @apply py-16 px-4 min-h-screen flex items-center;
+  @apply md:py-24 md:px-0;
   @apply bg-dark-primary;
 }
 
@@ -14,7 +16,9 @@
 }
 
 .contact__title {
-  @apply text-4xl md:text-5xl font-sans font-bold mb-12 text-center;
+  @apply text-3xl font-sans font-bold mb-8 text-center;
+  @apply md:text-4xl md:mb-12;
+  @apply lg:text-5xl;
   background: var(--gradient-text);
   @apply bg-clip-text text-transparent;
   -webkit-background-clip: text;
@@ -22,19 +26,34 @@
 }
 
 .contact__content {
-  @apply grid gap-16;
-  grid-template-columns: 1fr 2fr;
+  @apply grid gap-8 grid-cols-1;
+  @apply md:gap-12;
+  @apply lg:gap-16 lg:grid-cols-[1fr_2fr];
 }
 
 .contact__info {
-  @apply flex flex-col gap-8;
+  @apply flex flex-col gap-6;
+  @apply md:gap-8;
 }
 
 .contact__info-item {
-  @apply flex gap-6 p-6 rounded-2xl;
+  @apply flex gap-4 p-4 rounded-2xl;
+  @apply md:gap-6 md:p-6;
   @apply transition-all duration-300 ease-in-out;
   background: rgba(255, 255, 255, 0.05);
   @apply backdrop-blur-md border border-dark-border;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__info-item::before {
+  content: '';
+  @apply absolute inset-0 rounded-2xl opacity-0 pointer-events-none;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(74, 144, 226, 0.1));
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
 
 .light .contact__info-item {
@@ -45,14 +64,29 @@
 .contact__info-item:hover {
   @apply translate-x-2.5;
   @apply border-dark-accent;
+  @apply shadow-glow-green-sm;
+  transform: translateX(10px) translateY(-2px) !important;
+}
+
+.contact__info-item:hover::before {
+  opacity: 1;
 }
 
 .light .contact__info-item:hover {
   @apply border-light-primary;
+  @apply shadow-glow-blue-sm;
 }
 
 .contact__info-icon {
-  @apply text-[2rem] flex-shrink-0;
+  @apply text-xl shrink-0;
+  @apply md:text-2xl;
+  @apply lg:text-[2rem];
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.contact__info-item:hover .contact__info-icon {
+  @apply lg:scale-110 lg:rotate-6;
 }
 
 .contact__info-text {
@@ -60,7 +94,8 @@
 }
 
 .contact__info-label {
-  @apply text-sm font-semibold mb-2 text-dark-text-muted uppercase tracking-wide;
+  @apply text-xs font-semibold mb-1.5 text-dark-text-muted uppercase tracking-wide;
+  @apply md:text-sm md:mb-2;
 }
 
 .light .contact__info-label {
@@ -68,7 +103,8 @@
 }
 
 .contact__info-value {
-  @apply text-base block text-dark-text;
+  @apply text-sm block text-dark-text;
+  @apply md:text-base;
 }
 
 .light .contact__info-value {
@@ -77,10 +113,23 @@
 
 .contact__info-value--link {
   @apply no-underline transition-colors duration-300 ease-in-out;
+  position: relative;
+}
+
+.contact__info-value--link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5;
+  background: linear-gradient(90deg, #00ff88, #4a90e2);
+  transition: width 0.3s ease;
 }
 
 .contact__info-value--link:hover {
   @apply text-dark-accent;
+  transform: translateX(2px);
+}
+
+.contact__info-value--link:hover::after {
+  width: 100%;
 }
 
 .light .contact__info-value--link:hover {
@@ -88,11 +137,13 @@
 }
 
 .contact__social {
-  @apply flex flex-col gap-4 mt-4;
+  @apply flex flex-col gap-3 mt-2;
+  @apply md:gap-4 md:mt-4;
 }
 
 .contact__social-link {
-  @apply px-6 py-4 rounded-xl no-underline font-semibold text-center;
+  @apply px-4 py-3 rounded-xl no-underline font-semibold text-center text-sm;
+  @apply md:px-6 md:py-4 md:text-base;
   @apply transition-all duration-300 ease-in-out;
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.3);
@@ -118,7 +169,9 @@
 
 .contact__form {
   background: rgba(255, 255, 255, 0.05);
-  @apply backdrop-blur-[10px] border border-white/10 rounded-3xl p-10;
+  @apply backdrop-blur-[10px] border border-white/10 rounded-3xl p-6;
+  @apply md:p-8;
+  @apply lg:p-10;
 }
 
 .light .contact__form {
@@ -127,11 +180,13 @@
 }
 
 .contact__form-group {
-  @apply mb-6;
+  @apply mb-4;
+  @apply md:mb-6;
 }
 
 .contact__form-label {
-  @apply block text-sm font-semibold mb-2 text-white/90 uppercase tracking-wide;
+  @apply block text-xs font-semibold mb-2 text-white/90 uppercase tracking-wide;
+  @apply md:text-sm;
 }
 
 .light .contact__form-label {
@@ -140,7 +195,8 @@
 
 .contact__form-input,
 .contact__form-textarea {
-  @apply w-full p-4 rounded-xl text-base font-sans;
+  @apply w-full p-3 rounded-xl text-sm font-sans;
+  @apply md:p-4 md:text-base;
   @apply transition-all duration-300 ease-in-out;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--color-dark-border-strong);
@@ -154,11 +210,46 @@
   @apply text-light-text;
 }
 
+/* Estilos para autocomplete do navegador - Dark Theme */
+.contact__form-input:-webkit-autofill,
+.contact__form-input:-webkit-autofill:hover,
+.contact__form-input:-webkit-autofill:focus,
+.contact__form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.1) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  caret-color: #ffffff !important;
+  color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.light .contact__form-input:-webkit-autofill,
+.light .contact__form-input:-webkit-autofill:hover,
+.light .contact__form-input:-webkit-autofill:focus,
+.light .contact__form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset !important;
+  -webkit-text-fill-color: #0a0e27 !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  caret-color: #0a0e27 !important;
+  color: #0a0e27 !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
 .contact__form-input:focus,
 .contact__form-textarea:focus {
   @apply outline-none;
   @apply border-dark-accent;
   box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+
+.contact__form-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.1) inset, 0 0 0 3px rgba(0, 255, 136, 0.1) !important;
+  border: 1px solid #00ff88 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .light .contact__form-input:focus,
@@ -167,32 +258,22 @@
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
+.light .contact__form-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.9) inset, 0 0 0 3px rgba(74, 144, 226, 0.1) !important;
+  border: 1px solid #4a90e2 !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-text-fill-color: #0a0e27 !important;
+  color: #0a0e27 !important;
+}
+
 .contact__form-textarea {
-  @apply resize-y min-h-[120px];
-}
-
-.contact__form-submit {
-  @apply w-full px-8 py-4 text-lg font-semibold rounded-xl;
-  @apply cursor-pointer transition-all duration-300 ease-in-out uppercase tracking-wide border-none;
-  background: var(--gradient-primary);
-  @apply text-dark-primary;
-}
-
-.contact__form-submit:hover:not(:disabled) {
-  @apply -translate-y-1 shadow-glow-green;
-}
-
-.contact__form-submit:disabled {
-  @apply opacity-60 cursor-not-allowed;
-}
-
-.contact__form-submit:focus {
-  @apply outline-[3px] outline-offset-[3px];
-  outline-color: var(--color-dark-accent);
+  @apply resize-y min-h-[100px];
+  @apply md:min-h-[120px];
 }
 
 .contact__form-message {
-  @apply p-4 rounded-xl mb-4 text-center font-medium;
+  @apply p-3 rounded-xl mb-4 text-center font-medium text-sm;
+  @apply md:p-4 md:text-base;
 }
 
 .contact__form-message--success {
@@ -208,23 +289,15 @@
   color: #4a90e2;
 }
 
-@media (max-width: 968px) {
-  .contact__content {
-    @apply grid-cols-1 gap-12;
-  }
+.contact__form-message--error {
+  background: rgba(239, 68, 68, 0.2);
+  @apply border;
+  border-color: #ef4444;
+  color: #ef4444;
 }
 
-@media (max-width: 768px) {
-  .contact {
-    @apply py-16 px-4;
-  }
-
-  .contact__title {
-    @apply text-3xl mb-8;
-  }
-
-  .contact__form {
-    @apply p-6;
-  }
+.light .contact__form-message--error {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #dc2626;
+  color: #dc2626;
 }
-
