@@ -90,18 +90,19 @@
 .projects__item-header {
   @apply w-full lg:w-auto lg:flex-1 lg:max-w-lg;
   @apply h-full justify-start;
-  @apply mt-[6rem] md:mt-[12rem] lg:mt-[4rem] lg:mt-0;
+  @apply mt-[6rem] md:mt-[12rem] lg:mt-0;
   @apply flex flex-col text-left;
 }
 
 .projects__title-main {
-  @apply font-display;
-  @apply text-white;
-  @apply text-3xl md:text-4xl lg:text-5xl lg:text-6xl;
+  @apply text-4xl md:text-5xl font-display font-bold;
   @apply leading-tight;
   @apply mb-2 sm:mb-6 lg:mb-8;
   @apply tracking-normal;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 4px 24px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
+  background: var(--gradient-text);
+  @apply bg-clip-text text-transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .projects__item-description {
@@ -203,7 +204,7 @@
   }
 
   .projects__title-main {
-    @apply text-2xl mb-4;
+    @apply text-3xl mb-4;
   }
 
 
