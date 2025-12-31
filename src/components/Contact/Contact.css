@@ -2,7 +2,7 @@
 
 /* Mobile First - Base styles */
 .contact {
-  @apply py-16 px-4 min-h-screen flex items-center;
+  @apply py-16 min-h-screen flex items-center;
   @apply md:py-24 md:px-0;
   @apply bg-dark-primary;
 }
