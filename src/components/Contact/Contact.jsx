@@ -275,74 +275,76 @@ const Contact = () => {
       <div className="contact__container">
         <h2 className="contact__title">{t('contact.title')}</h2>
         <div className="contact__content">
-          <div className="contact__info" ref={infoRef} role="list">
-            <div 
-              className="contact__info-item" 
-              ref={infoItem1Ref}
-              role="listitem"
-            >
-              <span className="contact__info-icon" aria-hidden="true">📍</span>
-              <div className="contact__info-text">
-                <h3 className="contact__info-label">{t('contact.locationLabel')}</h3>
-                <p className="contact__info-value">{t('about.location')}</p>
+          <div className="contact__left">
+            <div className="contact__info" ref={infoRef} role="list">
+              <div 
+                className="contact__info-item" 
+                ref={infoItem1Ref}
+                role="listitem"
+              >
+                <span className="contact__info-icon" aria-hidden="true">📍</span>
+                <div className="contact__info-text">
+                  <h3 className="contact__info-label">{t('contact.locationLabel')}</h3>
+                  <p className="contact__info-value">{t('about.location')}</p>
+                </div>
+              </div>
+              <div 
+                className="contact__info-item" 
+                ref={infoItem2Ref}
+                role="listitem"
+              >
+                <span className="contact__info-icon" aria-hidden="true">📞</span>
+                <div className="contact__info-text">
+                  <h3 className="contact__info-label">{t('contact.phoneLabel')}</h3>
+                  <a 
+                    href={`tel:${t('about.phone').replace(/\s/g, '')}`} 
+                    className="contact__info-value contact__info-value--link"
+                    aria-label={`Phone: ${t('about.phone')}`}
+                  >
+                    {t('about.phone')}
+                  </a>
+                </div>
+              </div>
+              <div 
+                className="contact__info-item" 
+                ref={infoItem3Ref}
+                role="listitem"
+              >
+                <span className="contact__info-icon" aria-hidden="true">✉️</span>
+                <div className="contact__info-text">
+                  <h3 className="contact__info-label">{t('contact.emailLabel')}</h3>
+                  <a 
+                    href={`mailto:${t('about.email')}`} 
+                    className="contact__info-value contact__info-value--link"
+                    aria-label={`Email: ${t('about.email')}`}
+                  >
+                    {t('about.email')}
+                  </a>
+                </div>
               </div>
             </div>
-            <div 
-              className="contact__info-item" 
-              ref={infoItem2Ref}
-              role="listitem"
-            >
-              <span className="contact__info-icon" aria-hidden="true">📞</span>
-              <div className="contact__info-text">
-                <h3 className="contact__info-label">{t('contact.phoneLabel')}</h3>
-                <a 
-                  href={`tel:${t('about.phone').replace(/\s/g, '')}`} 
-                  className="contact__info-value contact__info-value--link"
-                  aria-label={`Phone: ${t('about.phone')}`}
-                >
-                  {t('about.phone')}
-                </a>
-              </div>
+            <div className="contact__social" ref={socialRef} role="list">
+              <a
+                href="https://linkedin.com/in/diego-mota-cavalcante"
+                className="contact__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                role="listitem"
+              >
+                💼 LinkedIn
+              </a>
+              <a
+                href="https://github.com/diegomota2374"
+                className="contact__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                role="listitem"
+              >
+                💻 GitHub
+              </a>
             </div>
-            <div 
-              className="contact__info-item" 
-              ref={infoItem3Ref}
-              role="listitem"
-            >
-              <span className="contact__info-icon" aria-hidden="true">✉️</span>
-              <div className="contact__info-text">
-                <h3 className="contact__info-label">{t('contact.emailLabel')}</h3>
-                <a 
-                  href={`mailto:${t('about.email')}`} 
-                  className="contact__info-value contact__info-value--link"
-                  aria-label={`Email: ${t('about.email')}`}
-                >
-                  {t('about.email')}
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="contact__social" ref={socialRef} role="list">
-            <a
-              href="https://linkedin.com/in/diego-mota-cavalcante"
-              className="contact__social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              role="listitem"
-            >
-              💼 LinkedIn
-            </a>
-            <a
-              href="https://github.com/diegomota2374"
-              className="contact__social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              role="listitem"
-            >
-              💻 GitHub
-            </a>
           </div>
           <form className="contact__form" ref={formRef} onSubmit={handleSubmit}>
             <div className="contact__form-group">
