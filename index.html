@@ -18,20 +18,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Open Graph / Facebook -->
+    <!-- Load fonts with font-display swap to prevent render blocking -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" />
+    </noscript>
+    
+    <!-- Open Graph / Facebook - URLs will be set dynamically but with fallback for crawlers -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" id="og-url" content="" />
-    <meta property="og:title" content="Diego Mota Cavalcante - Desenvolvedor Front-end" />
-    <meta property="og:description" content="Desenvolvedor Front-end especializado em React, Next.js e WordPress" />
-    <meta property="og:image" id="og-image" content="" />
+    <meta property="og:url" id="og-url" content="https://portfolio-dmc-one.vercel.app" />
+    <meta property="og:title" content="Diego Mota Cavalcante - Desenvolvedor Front-end | Portfolio" />
+    <meta property="og:description" content="Desenvolvedor Front-end especializado em React, Next.js e WordPress. Experiência em desenvolvimento web e mobile." />
+    <meta property="og:image" id="og-image" content="https://portfolio-dmc-one.vercel.app/opgdmc.webp" />
+    <meta property="og:image:secure_url" content="https://portfolio-dmc-one.vercel.app/opgdmc.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Diego Mota Cavalcante - Desenvolvedor Front-end" />
+    <meta property="og:site_name" content="Diego Mota Cavalcante - Portfolio" />
+    <meta property="og:locale" content="pt_BR" />
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Diego Mota Cavalcante - Desenvolvedor Front-end" />
-    <meta property="twitter:description" content="Desenvolvedor Front-end especializado em React, Next.js e WordPress" />
-    <meta property="twitter:image" id="twitter-image" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Diego Mota Cavalcante - Desenvolvedor Front-end | Portfolio" />
+    <meta name="twitter:description" content="Desenvolvedor Front-end especializado em React, Next.js e WordPress. Experiência em desenvolvimento web e mobile." />
+    <meta name="twitter:image" id="twitter-image" content="https://portfolio-dmc-one.vercel.app/opgdmc.webp" />
+    <meta name="twitter:image:alt" content="Diego Mota Cavalcante - Desenvolvedor Front-end" />
     
-    <!-- Script for define URLs dynamically -->
+    <!-- Script for define URLs dynamically (updates URLs if domain is different) -->
     <script>
       (function() {
         const origin = window.location.origin;
@@ -41,17 +55,40 @@
         const twitterImage = document.getElementById('twitter-image');
         
         if (canonical) canonical.href = origin;
-        if (ogUrl) ogUrl.content = origin;
-        if (ogImage) ogImage.content = origin + '/opgdmc.webp';
-        if (twitterImage) twitterImage.content = origin + '/opgdmc.webp';
+        // Update URLs if different from default
+        if (ogUrl && origin !== 'https://portfolio-dmc-one.vercel.app') {
+          ogUrl.content = origin;
+        }
+        if (ogImage && origin !== 'https://portfolio-dmc-one.vercel.app') {
+          ogImage.content = origin + '/opgdmc.webp';
+        }
+        if (twitterImage && origin !== 'https://portfolio-dmc-one.vercel.app') {
+          twitterImage.content = origin + '/opgdmc.webp';
+        }
       })();
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Diego Mota Cavalcante",
+      "jobTitle": "Desenvolvedor Front-end",
+      "url": "https://portfolio-dmc-one.vercel.app",
+      "image": "https://portfolio-dmc-one.vercel.app/opgdmc.webp",
+      "sameAs": [
+        "https://linkedin.com/in/diego-mota-cavalcante",
+        "https://github.com/diegomota2374"
+      ]
+    }
     </script>
     
     <title>Diego Mota Cavalcante - Desenvolvedor Front-end | Portfolio</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>
 

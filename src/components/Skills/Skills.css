@@ -78,7 +78,7 @@
 }
 
 .skills__swiper-slide {
-  @apply flex-shrink-0;
+  @apply shrink-0;
   width: 100%;
   min-width: 100%;
   padding: 0;
