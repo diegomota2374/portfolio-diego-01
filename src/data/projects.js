@@ -4,6 +4,8 @@ import haipeImg from '../assets/images/projects/haipe-normal.webp'
 import haipeImgMobile from '../assets/images/projects/haipe-normal-m.webp'
 import mneImg from '../assets/images/projects/mne.webp'
 import mneImgMobile from '../assets/images/projects/mne-m.webp'
+import yogaLiveAcademyImg from '../assets/images/projects/yoga-live-academy.webp'
+import yogaLiveAcademyImgMobile from '../assets/images/projects/yoga-live-academy-m.webp'
 
 export const projects = [
   {
@@ -12,7 +14,7 @@ export const projects = [
     technologies: ['WordPress', 'PHP', 'MySQL'],
     image: cruzVermelhaImgMobile,
     imageDesktop: cruzVermelhaImg,
-    liveUrl: '#',
+    liveUrl: 'https://eu4health.cruzvermelha.pt/',
     codeUrl: '#'
   },
   {
@@ -31,6 +33,15 @@ export const projects = [
     image: mneImgMobile,
     imageDesktop: mneImg,
     liveUrl: 'https://portugal4unsc.com/',
+    codeUrl: '#'
+  },
+  {
+    id: 4,
+    translationKey: 'projects.items.3',
+    technologies: ['WordPress', 'PHP', 'MySQL'],
+    image: yogaLiveAcademyImgMobile,
+    imageDesktop: yogaLiveAcademyImg,
+    liveUrl: 'https://yogaliveacademy.pt/',
     codeUrl: '#'
   }
 ]

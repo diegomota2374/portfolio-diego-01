@@ -234,6 +234,9 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={projectData.title}
+                      title={projectData.title}
+                      width={index === 0 ? "2610" : index === 1 ? "1024" : "1200"}
+                      height={index === 0 ? "1800" : index === 1 ? "538" : "630"}
                       className="projects__image-img"
                       loading={index === 0 ? 'eager' : 'lazy'}
                     />
