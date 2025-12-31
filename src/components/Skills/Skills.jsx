@@ -242,6 +242,7 @@ const Skills = () => {
           >
             <div 
               className="skills__swiper-container"
+              role="list"
               style={{
                 transform: `translateX(-${currentCategorySlide * 100}%)`
               }}
@@ -262,7 +263,7 @@ const Skills = () => {
                   <path d="M15 18l-6-6 6-6"/>
                 </svg>
               </button>
-              <div className="skills__swiper-pagination">
+              <div className="skills__swiper-pagination" role="group" aria-label="Category navigation">
                 {categoriesList.map((_, index) => (
                   <button
                     key={index}
@@ -271,7 +272,10 @@ const Skills = () => {
                     }`}
                     onClick={() => setCurrentCategorySlide(index)}
                     aria-label={`Go to ${categoriesList[index].key} category`}
-                  />
+                    aria-current={index === currentCategorySlide ? 'true' : 'false'}
+                  >
+                    <span className="skills__swiper-pagination-bullet-inner"></span>
+                  </button>
                 ))}
               </div>
               <button

@@ -12,8 +12,12 @@ import Footer from './components/Footer/Footer'
 import BackToTop3D from './components/BackToTop3D/BackToTop3D'
 import './App.css'
 
-// Lazy load heavy WebGL components
-const WebGLBackground = lazy(() => import('./components/WebGLBackground/WebGLBackground'))
+// Lazy load heavy WebGL components - only load when needed
+const WebGLBackground = lazy(() => 
+  import('./components/WebGLBackground/WebGLBackground').catch(() => ({
+    default: () => null // Fallback if WebGL fails to load
+  }))
+)
 
 function App() {
   return (

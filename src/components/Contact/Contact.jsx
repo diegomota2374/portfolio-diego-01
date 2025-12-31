@@ -321,26 +321,28 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-            <div className="contact__social" ref={socialRef}>
-              <a
-                href="https://linkedin.com/in/diego-mota-cavalcante"
-                className="contact__social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                💼 LinkedIn
-              </a>
-              <a
-                href="https://github.com/diegomota2374"
-                className="contact__social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                💻 GitHub
-              </a>
-            </div>
+          </div>
+          <div className="contact__social" ref={socialRef} role="list">
+            <a
+              href="https://linkedin.com/in/diego-mota-cavalcante"
+              className="contact__social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              role="listitem"
+            >
+              💼 LinkedIn
+            </a>
+            <a
+              href="https://github.com/diegomota2374"
+              className="contact__social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              role="listitem"
+            >
+              💻 GitHub
+            </a>
           </div>
           <form className="contact__form" ref={formRef} onSubmit={handleSubmit}>
             <div className="contact__form-group">

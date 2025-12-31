@@ -18,18 +18,34 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-gsap': ['gsap'],
-          'vendor-three': ['three'],
-          'vendor-emailjs': ['@emailjs/browser'],
+        manualChunks: (id) => {
+          // Split vendor chunks more granularly
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react'
+            }
+            if (id.includes('gsap')) {
+              return 'vendor-gsap'
+            }
+            if (id.includes('three')) {
+              return 'vendor-three'
+            }
+            if (id.includes('@emailjs')) {
+              return 'vendor-emailjs'
+            }
+            // Other node_modules
+            return 'vendor-other'
+          }
         },
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Use esbuild minify (default, faster and doesn't require terser)
+    minify: 'esbuild',
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'gsap'],
+    include: ['react', 'react-dom'],
+    exclude: ['three'], // Let Three.js be lazy loaded
   },
 })
 
