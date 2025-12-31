@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import avatarImg from '../../assets/images/avatar-diego.png'
+import avatarImg from '../../assets/images/avatar-diego.webp'
 import './AvatarInteractive.css'
 
 const AvatarInteractive = () => {
@@ -69,10 +69,12 @@ const AvatarInteractive = () => {
             src={avatarImg} 
             alt="Diego Mota Cavalcante" 
             title="Diego Mota Cavalcante"
-            width="1024"
-            height="1024"
+            width="512"
+            height="512"
             loading="eager"
             className="avatar-image"
+            decoding="async"
+            fetchPriority="high"
           />
           
           {/* Overlay effects */}

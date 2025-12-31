@@ -239,6 +239,8 @@ const Projects = () => {
                       height={index === 0 ? "1800" : index === 1 ? "538" : "630"}
                       className="projects__image-img"
                       loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      fetchPriority={index === 0 ? 'high' : 'low'}
                     />
                   </picture>
                 </div>
