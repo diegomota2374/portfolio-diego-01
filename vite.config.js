@@ -40,12 +40,8 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.log in production
-      },
-    },
+    // Use esbuild minify (default, faster and doesn't require terser)
+    minify: 'esbuild',
   },
   optimizeDeps: {
     include: ['react', 'react-dom'],

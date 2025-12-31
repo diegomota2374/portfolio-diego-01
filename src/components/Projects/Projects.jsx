@@ -8,10 +8,8 @@ import TechTag from '../TechTag'
 import AnimatedCube3D from '../AnimatedCube3D'
 import './Projects.css'
 
-// Register ScrollTrigger plugin only once
-if (typeof window !== 'undefined' && !gsap.plugins.scrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger)
-}
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
 
 const Projects = () => {
   const { t } = useLanguage()
