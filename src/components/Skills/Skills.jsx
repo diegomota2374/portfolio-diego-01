@@ -217,6 +217,7 @@ const Skills = () => {
       <div 
         key={categoryKey}
         className="skills__category"
+        role="listitem"
       >
         <h3 className="skills__category-title">{categoryTitle}</h3>
         <div className="skills__list">
