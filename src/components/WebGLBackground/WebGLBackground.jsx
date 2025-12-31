@@ -29,14 +29,16 @@ const WebGLBackground = () => {
     const renderer = new THREE.WebGLRenderer({
       canvas: mountRef.current,
       alpha: true,
-      antialias: !isMobile
+      antialias: !isMobile,
+      powerPreference: 'high-performance'
     })
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2))
     rendererRef.current = renderer
 
     const particlesGeometry = new THREE.BufferGeometry()
-    const particlesCount = isMobile ? 800 : isTablet ? 1200 : 2000
+    // Reduced particle count for better performance
+    const particlesCount = isMobile ? 400 : isTablet ? 600 : 1000
     const positions = new Float32Array(particlesCount * 3)
     const colors = new Float32Array(particlesCount * 3)
 
@@ -116,9 +118,17 @@ const WebGLBackground = () => {
     }
 
     const clock = new THREE.Clock()
+    let frameCount = 0
 
     const animate = () => {
       animationIdRef.current = requestAnimationFrame(animate)
+      frameCount++
+
+      // Throttle animation on mobile for better performance
+      if (isMobile && frameCount % 2 !== 0) {
+        renderer.render(scene, camera)
+        return
+      }
 
       const elapsedTime = clock.getElapsedTime()
 

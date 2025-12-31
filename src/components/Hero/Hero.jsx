@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { gsap } from 'gsap'
-import ParticleCanvas from './ParticleCanvas'
 import AvatarInteractive from './AvatarInteractive'
 import Button from '../Button'
 import './Hero.css'
+
+// Lazy load heavy ParticleCanvas component
+const ParticleCanvas = lazy(() => import('./ParticleCanvas'))
 
 const Hero = () => {
   const { t } = useLanguage()
@@ -70,8 +72,6 @@ const Hero = () => {
         opacity: 1,
         duration: 0.6
       }, '-=0.3')
-
-      console.log('✅ GSAP animations started')
     }, 100)
 
     return () => {
@@ -95,7 +95,9 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero" ref={heroRef} aria-label="Hero section">
-      <ParticleCanvas />
+      <Suspense fallback={null}>
+        <ParticleCanvas />
+      </Suspense>
       <div className="hero__content">
         <div className="hero__glass" ref={glassRef}>
           {/* Avatar Interactive - in foreground */}

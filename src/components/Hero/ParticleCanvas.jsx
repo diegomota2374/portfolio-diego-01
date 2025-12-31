@@ -15,6 +15,10 @@ const ParticleCanvas = () => {
   useEffect(() => {
     if (!containerRef.current) return
 
+    // Detect device type for performance optimization
+    const isMobile = window.innerWidth < 768
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024
+
     // Scene setup
     const scene = new THREE.Scene()
     sceneRef.current = scene
@@ -30,14 +34,14 @@ const ParticleCanvas = () => {
     cameraRef.current = camera
 
     // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !isMobile })
     renderer.setSize(window.innerWidth, window.innerHeight)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2))
     containerRef.current.appendChild(renderer.domElement)
     rendererRef.current = renderer
 
-    // Create particles
-    const particleCount = 800
+    // Create particles - reduced for better performance
+    const particleCount = isMobile ? 300 : isTablet ? 500 : 600
     const geometry = new THREE.BufferGeometry()
     const positions = new Float32Array(particleCount * 3)
     const colors = new Float32Array(particleCount * 3)
@@ -145,10 +149,17 @@ const ParticleCanvas = () => {
     renderer.domElement.addEventListener('click', handleClick)
     renderer.domElement.addEventListener('touchstart', handleTouchStart, { passive: true })
 
-    // Animation
+    // Animation - throttled for better performance
     let time = 0
+    let frameCount = 0
     const animate = () => {
       animationFrameRef.current = requestAnimationFrame(animate)
+      frameCount++
+      // Skip frames on slower devices for better performance
+      if (isMobile && frameCount % 2 !== 0) {
+        renderer.render(scene, camera)
+        return
+      }
       time += 0.01
 
       // Update shockwave
@@ -215,8 +226,10 @@ const ParticleCanvas = () => {
 
           positionAttribute.setXYZ(i / 3, positions[i], positions[i + 1], positions[i + 2])
 
-          // Check distance to nearby particles for connections
-          for (let j = i + 3; j < positions.length; j += 3) {
+          // Check distance to nearby particles for connections - optimized with early exit
+          let connectionsFound = 0
+          const maxConnections = 5
+          for (let j = i + 3; j < positions.length && connectionsFound < maxConnections; j += 3) {
             const dx = positions[i] - positions[j]
             const dy = positions[i + 1] - positions[j + 1]
             const dz = positions[i + 2] - positions[j + 2]
@@ -225,6 +238,7 @@ const ParticleCanvas = () => {
             if (dist < maxDistance) {
               linePositions.push(positions[i], positions[i + 1], positions[i + 2])
               linePositions.push(positions[j], positions[j + 1], positions[j + 2])
+              connectionsFound++
             }
           }
         }
