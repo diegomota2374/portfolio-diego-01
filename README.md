@@ -1,115 +1,248 @@
 # Portfolio - Diego Mota Cavalcante
 
-Portfolio pessoal desenvolvido com foco em animações complexas usando Three.js e GSAP. Uma landing page moderna, responsiva e otimizada para SEO e acessibilidade.
+Personal portfolio developed with a focus on complex animations using Three.js and GSAP. A modern, responsive landing page optimized for SEO and accessibility.
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
-- **React** - Biblioteca JavaScript para construção de interfaces
-- **Vite** - Build tool e dev server
-- **Tailwind CSS 4** - Framework CSS utilitário
-- **Three.js** - Biblioteca 3D para animações de partículas
-- **GSAP** - Biblioteca de animações de alta performance
-- **React Intersection Observer** - Para animações baseadas em scroll
+- **React 18** - JavaScript library for building user interfaces
+- **Vite** - High-performance build tool and dev server
+- **Tailwind CSS 4** - Utility-first CSS framework (alpha version)
+- **Three.js** - 3D library for particle animations and WebGL
+- **GSAP** - High-performance animation library
+  - **ScrollTrigger** - Plugin for scroll-based animations
+- **React Intersection Observer** - For scroll and visibility-based animations
+- **EmailJS** - Service for sending emails via contact form
 
-## ✨ Características
+## ✨ Features
 
-- 🎨 **Animações Complexas**: Partículas 3D com Three.js e animações suaves com GSAP
-- 🌓 **Temas Dark/Light**: Sistema de temas com cores personalizadas
-  - Dark: Azul escuro quase preto (#0a0e27) e verde (#00ff88)
-  - Light: Azul claro (#4a90e2) e branco cinzento/gelo (#f5f7fa)
-- 🌐 **Multilíngue**: Suporte para Português e Inglês com toggle
-- 📱 **Responsivo**: Design adaptável para todos os dispositivos
-- ♿ **Acessível**: Seguindo as melhores práticas de acessibilidade (WCAG)
-- 🔍 **SEO Otimizado**: Meta tags, estrutura semântica e Open Graph
-- 🎯 **Navegação Sticky**: Header sempre acessível durante o scroll
-- 💎 **Efeito Glass**: Design moderno com efeito de vidro (glassmorphism)
+- 🎨 **Complex Animations**: 
+  - Interactive 3D particles with Three.js in the background
+  - Smooth animations with GSAP and ScrollTrigger
+  - Parallax effects and scroll-based animations
+  - "Back to Top" button with animated 3D coin
+  - Animated 3D cube in the projects section
+- 🌓 **Dark/Light Themes**: Theme system with custom colors
+  - Dark: Almost black dark blue (#0a0e27) and green (#00ff88)
+  - Light: Light blue (#4a90e2) and grayish white/ice (#f5f7fa)
+  - Preference persistence in localStorage
+- 🌐 **Multilingual**: Support for Portuguese and English with toggle
+  - Complete translations of the entire interface
+  - Preference persistence in localStorage
+- 📱 **Responsive**: Design adaptable for all devices
+  - Optimized mobile menu
+  - Responsive images (mobile/desktop)
+  - Automatic particle adjustment per device
+- ♿ **Accessible**: Following best accessibility practices (WCAG)
+  - ARIA labels on interactive elements
+  - Complete keyboard navigation
+  - Adequate contrast (WCAG AA)
+  - Visible focus states
+- 🔍 **SEO Optimized**: Meta tags, semantic structure and Open Graph
+  - Dynamic meta tags
+  - Open Graph and Twitter Cards
+  - HTML5 semantic structure
+- 🎯 **Sticky Navigation**: Header always accessible during scroll
+- 💎 **Glass Effect**: Modern design with glass effect (glassmorphism)
+- 📧 **Contact Form**: EmailJS integration for sending emails
+- 🎭 **Interactivity**: 3D hover effects on cards and interactive elements
 
-## 📋 Estrutura
+## 📋 Structure
 
 ```
 portfolio/
 ├── src/
 │   ├── components/
-│   │   ├── HeaderTop/      # Toggles de tema e idioma
-│   │   ├── HeaderNav/      # Navegação sticky
-│   │   ├── Hero/           # Seção principal com partículas
-│   │   ├── About/          # Seção sobre mim
-│   │   ├── Projects/       # Seção de projetos
-│   │   ├── Skills/         # Seção de habilidades
-│   │   └── Contact/        # Formulário de contato
+│   │   ├── HeaderTop/          # Theme and language toggles
+│   │   ├── HeaderNav/          # Sticky navigation
+│   │   ├── MobileMenu/         # Responsive mobile menu
+│   │   ├── Hero/               # Main section with particles
+│   │   │   ├── ParticleCanvas.jsx    # 3D particles canvas
+│   │   │   └── AvatarInteractive.jsx # Interactive avatar
+│   │   ├── About/              # About me section
+│   │   ├── Projects/           # Projects section
+│   │   ├── Skills/             # Skills section
+│   │   ├── Contact/           # Contact form with EmailJS
+│   │   ├── Footer/            # Footer with toggles
+│   │   ├── BackToTop3D/       # 3D button to return to top
+│   │   ├── WebGLBackground/   # WebGL particles background
+│   │   ├── Button/            # Reusable button component
+│   │   ├── TechTag/           # Technology tag
+│   │   └── AnimatedCube3D/     # Animated 3D cube
 │   ├── contexts/
-│   │   ├── ThemeContext.jsx    # Contexto de tema
-│   │   └── LanguageContext.jsx # Contexto de idioma
+│   │   ├── ThemeContext.jsx    # Theme context (dark/light)
+│   │   └── LanguageContext.jsx # Language context (pt/en)
 │   ├── data/
-│   │   ├── translations.js # Traduções PT/EN
-│   │   ├── projects.js     # Dados dos projetos
-│   │   └── skills.js       # Dados das habilidades
+│   │   ├── translations.js      # PT/EN translations
+│   │   ├── projects.js          # Projects data
+│   │   └── skills.js            # Skills data
+│   ├── assets/
+│   │   ├── images/             # Images and projects
+│   │   └── icons/              # Icons and favicons
+│   ├── styles/
+│   │   ├── variables.css       # CSS variables
+│   │   └── utilities.css       # CSS utilities
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
+├── public/
+│   └── opgdmc.webp            # Open Graph image
 ├── package.json
-├── vite.config.js
-├── tailwind.config.js
+├── vite.config.js             # Vite configuration with path aliases
+├── tailwind.config.js         # Tailwind CSS 4 configuration
+├── postcss.config.js          # PostCSS configuration
+├── index.html
 └── README.md
 ```
 
-## 🎨 Convenções de Código
+## 🎨 Code Conventions
 
-- **BEM Notation**: Todas as classes CSS seguem a metodologia BEM
-- **CSS Separado**: Cada componente tem seu próprio arquivo CSS
-- **Componentes Funcionais**: Utilizando React Hooks
-- **Context API**: Para gerenciamento de estado global (tema e idioma)
+- **BEM Notation**: All CSS classes follow the BEM methodology
+- **Separate CSS**: Each component has its own CSS file
+- **Functional Components**: Using React Hooks
+- **Context API**: For global state management (theme and language)
+- **Path Aliases**: Use of aliases for imports (`@/`, `@components/`, `@assets/`, etc.)
+- **ESLint**: Configured to maintain code quality
+- **TypeScript Types**: React types installed for better DX
 
-## 🚀 Como executar
+## 🚀 How to Run
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 18+ 
-- npm ou yarn
+- npm or yarn
 
-### Instalação
+### Installation
 
 ```bash
-# Instalar dependências
+# Install dependencies
 npm install
 
-# Executar em modo desenvolvimento
+# Run in development mode
 npm run dev
 
-# Build para produção
+# Build for production
 npm run build
 
-# Preview da build
+# Preview the build
 npm run preview
+
+# Lint the code
+npm run lint
 ```
 
-## 📱 Seções
+### Environment Variables
 
-1. **Hero**: Animação de partículas 3D com efeito glass e informações principais
-2. **Sobre**: Apresentação profissional e informações de contato
-3. **Projetos**: Grid de projetos com tecnologias utilizadas
-4. **Habilidades**: Categorização de skills técnicas
-5. **Contato**: Formulário de contato e links sociais
+For the contact form to work, create a `.env` file in the project root with the following variables:
 
-## 🎯 SEO e Acessibilidade
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-- Meta tags otimizadas
-- Estrutura semântica HTML5
-- ARIA labels em elementos interativos
-- Navegação por teclado
-- Contraste adequado (WCAG AA)
-- Atributo lang dinâmico
-- Focus states visíveis
+**How to get the credentials:**
+1. Visit [EmailJS](https://www.emailjs.com/)
+2. Create an account and configure an email service
+3. Create an email template
+4. Copy the credentials to the `.env` file
 
-## 📝 Licença
+> **Note:** The form will work even without these variables, but will show an error when trying to send.
 
-Este projeto é pessoal e foi desenvolvido como portfolio.
+## 📱 Sections
 
-## 👨‍💻 Autor
+1. **Hero**: 
+   - Interactive 3D particle animations in the background
+   - Interactive avatar with hover effects
+   - Main information with GSAP animations
+   - Glassmorphism effect
+
+2. **About**: 
+   - Professional presentation
+   - Contact information (location, phone, email)
+   - Scroll-based entrance animations
+
+3. **Projects**: 
+   - Responsive project grid
+   - Optimized images (mobile/desktop)
+   - Technology tags used
+   - Links to live projects
+   - ScrollTrigger animations
+   - Animated 3D cube as decorative element
+
+4. **Skills**: 
+   - Technical skills categorization
+   - Languages, frameworks, tools and databases
+   - Animated progress bars
+   - Staggered entrance animations
+
+5. **Contact**: 
+   - Contact form integrated with EmailJS
+   - Interactive information cards with 3D effect
+   - Links to social networks (LinkedIn, GitHub)
+   - Form validation
+   - Visual success/error feedback
+
+6. **Footer**: 
+   - Dynamic copyright
+   - Theme and language toggles
+   - Minimalist design
+
+7. **Back to Top**: 
+   - Floating button with animated 3D coin
+   - Appears after 300px scroll
+   - Continuous rotation animation
+   - Hover interaction with 3D movement
+
+## 🎯 SEO and Accessibility
+
+### SEO
+- Optimized and dynamic meta tags
+- HTML5 semantic structure
+- Open Graph tags for social networks
+- Twitter Cards configured
+- Dynamic canonical URL
+- Optimized meta description
+- Theme color configured
+
+### Accessibility
+- ARIA labels on interactive elements
+- Complete keyboard navigation
+- Adequate contrast (WCAG AA)
+- Dynamic lang attribute (pt-BR/en)
+- Visible focus states
+- Appropriate semantic roles
+- Descriptive labels in forms
+- Accessible error/success messages
+
+## 🛠️ Technical Features
+
+### Performance
+- Image lazy loading
+- Particle optimization per device (mobile: 800, tablet: 1200, desktop: 2000)
+- Automatic code splitting with Vite
+- Production-optimized build
+
+### Animations
+- **GSAP Timeline**: Complex and sequential animations
+- **ScrollTrigger**: Scroll-based animations
+- **Intersection Observer**: Visibility detection for animations
+- **Three.js**: Optimized 3D rendering
+- **RequestAnimationFrame**: Efficient animation loop
+
+### Responsiveness
+- Breakpoints: mobile (< 768px), tablet (768px - 1024px), desktop (> 1024px)
+- Responsive images with mobile/desktop versions
+- Optimized mobile menu
+- Automatic WebGL rendering adjustment
+
+## 📝 License
+
+This is a personal project developed as a portfolio.
+
+## 👨‍💻 Author
 
 **Diego Mota Cavalcante**
 - 📧 Email: diegomota2374@gmail.com
-- 📱 Telefone: +55 (85) 99637-0976
+- 📱 Phone: +55 (85) 99637-0976
 - 💼 [LinkedIn](https://linkedin.com/in/diego-mota-cavalcante)
 - 💻 [GitHub](https://github.com/diegomota2374)
-
