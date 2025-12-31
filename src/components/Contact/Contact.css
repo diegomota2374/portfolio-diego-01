@@ -31,9 +31,16 @@
   @apply lg:gap-16 lg:grid-cols-[1fr_2fr];
 }
 
+.contact__left {
+  @apply flex flex-col;
+  gap: 1.5rem;
+  @apply md:gap-2;
+}
+
 .contact__info {
-  @apply flex flex-col gap-6;
-  @apply md:gap-8;
+  @apply flex flex-col gap-4;
+  @apply md:gap-6;
+  @apply lg:gap-6;
 }
 
 .contact__info-item {
@@ -137,17 +144,22 @@
 }
 
 .contact__social {
-  @apply flex flex-col gap-3 mt-2;
-  @apply md:gap-4 md:mt-4;
+  @apply flex flex-col gap-3;
+  @apply md:gap-4;
+  @apply lg:flex-row lg:gap-4;
+  margin-top: 1.5rem;
+  @apply md:mt-2;
 }
 
 .contact__social-link {
   @apply px-4 py-3 rounded-xl no-underline font-semibold text-center text-sm;
   @apply md:px-6 md:py-4 md:text-base;
   @apply transition-all duration-300 ease-in-out;
+  @apply flex items-center justify-center gap-2;
   background: rgba(0, 255, 136, 0.1);
   border: 1px solid rgba(0, 255, 136, 0.3);
   @apply text-dark-accent;
+  flex: 1;
 }
 
 .light .contact__social-link {
