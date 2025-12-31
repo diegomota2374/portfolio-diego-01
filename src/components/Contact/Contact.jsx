@@ -275,7 +275,7 @@ const Contact = () => {
       <div className="contact__container">
         <h2 className="contact__title">{t('contact.title')}</h2>
         <div className="contact__content">
-          <div className="contact__info" ref={infoRef}>
+          <div className="contact__info" ref={infoRef} role="list">
             <div 
               className="contact__info-item" 
               ref={infoItem1Ref}
