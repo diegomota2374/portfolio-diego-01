@@ -68,6 +68,10 @@ const AvatarInteractive = () => {
           <img 
             src={avatarImg} 
             alt="Diego Mota Cavalcante" 
+            title="Diego Mota Cavalcante"
+            width="1024"
+            height="1024"
+            loading="eager"
             className="avatar-image"
           />
           

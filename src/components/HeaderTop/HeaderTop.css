@@ -44,12 +44,12 @@
   @apply translate-y-0;
 }
 
-.header-top__toggle:focus {
+.header-top__toggle:focus-visible {
   @apply outline-2 outline-offset-2;
   outline-color: var(--color-dark-accent);
 }
 
-.light .header-top__toggle:focus {
+.light .header-top__toggle:focus-visible {
   outline-color: var(--color-light-primary);
 }
 

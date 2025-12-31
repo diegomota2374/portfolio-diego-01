@@ -17,7 +17,7 @@ export const translations = {
     about: {
       title: 'Sobre Mim',
       content: 'Desenvolvedor Front-end com experiência no desenvolvimento de aplicações web e mobile, atuando em projetos para empresas internacionais. Especialista em React, Next.js e WordPress, com forte foco em performance, SEO, acessibilidade e qualidade de código. Profissional orientado a resultados, com experiência em ambientes ágeis e colaboração com times distribuídos.',
-      location: 'Fortaleza – CE, Brasil',
+      location: 'Paraipaba – CE, Brasil',
       phone: '+55 (85) 99637-0976',
       email: 'diegomota2374@gmail.com'
     },
@@ -37,6 +37,10 @@ export const translations = {
         {
           title: 'Portugal para o Conselho de Segurança da ONU',
           description: 'Website oficial da candidatura de Portugal ao Conselho de Segurança das Nações Unidas para o período 2027-2028. O projeto apresenta as prioridades e contribuições de Portugal na ONU. Desenvolvido com WordPress e animações avançadas utilizando GSAP ScrollTrigger, oferecendo uma experiência imersiva com seções interativas.'
+        },
+        {
+          title: 'Yoga Live Academy',
+          description: 'Website institucional da Yoga Live Academy, pioneiros no Hot Yoga em Portugal. A plataforma apresenta informações sobre aulas de diferentes linhas de yoga (Hot Yoga, Hatha Yoga, Vinyasa Flow, Yogaterapia), terapias, massagens e eventos. Desenvolvido em WordPress com PHP e MySQL, oferecendo uma experiência completa para os praticantes de yoga em Lisboa.'
         }
       ]
     },
@@ -89,7 +93,7 @@ export const translations = {
     about: {
       title: 'About Me',
       content: 'Front-end Developer with experience in developing web and mobile applications, working on projects for international companies. Specialist in React, Next.js and WordPress, with strong focus on performance, SEO, accessibility and code quality. Results-oriented professional, with experience in agile environments and collaboration with distributed teams.',
-      location: 'Fortaleza – CE, Brazil',
+      location: 'Paraipaba – CE, Brazil',
       phone: '+55 (85) 99637-0976',
       email: 'diegomota2374@gmail.com'
     },
@@ -109,6 +113,10 @@ export const translations = {
         {
           title: 'Portugal for UN Security Council',
           description: 'Official website of Portugal\'s candidacy to the United Nations Security Council for the period 2027-2028. The project presents Portugal\'s priorities and contributions at the UN. Developed with WordPress and advanced animations using GSAP ScrollTrigger, offering an immersive experience with interactive sections.'
+        },
+        {
+          title: 'Yoga Live Academy',
+          description: 'Institutional website for Yoga Live Academy, pioneers of Hot Yoga in Portugal. The platform presents information about classes in different yoga styles (Hot Yoga, Hatha Yoga, Vinyasa Flow, Yogatherapy), therapies, massages and events. Developed in WordPress with PHP and MySQL, offering a complete experience for yoga practitioners in Lisbon.'
         }
       ]
     },

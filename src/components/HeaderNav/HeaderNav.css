@@ -67,12 +67,12 @@
   @apply scale-105;
 }
 
-.header-nav__logo a:focus {
+.header-nav__logo a:focus-visible {
   @apply outline-2 outline-offset-2 rounded;
   outline-color: var(--color-dark-accent);
 }
 
-.light .header-nav__logo a:focus {
+.light .header-nav__logo a:focus-visible {
   outline-color: var(--color-light-primary);
 }
 
@@ -121,12 +121,12 @@
   @apply w-full;
 }
 
-.header-nav__link:focus {
+.header-nav__link:focus-visible {
   @apply outline-2 outline-offset-1 rounded;
   outline-color: var(--color-dark-accent);
 }
 
-.light .header-nav__link:focus {
+.light .header-nav__link:focus-visible {
   outline-color: var(--color-light-primary);
 }
 
